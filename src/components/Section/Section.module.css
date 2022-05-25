@@ -1,0 +1,50 @@
+  .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
+      
+     
+  }
+ @media screen and (min-width: 360px) {
+    .container {
+    min-width: 360px;
+    background-image:url(./heroMobile.jpg);
+    padding: 40px 16px 71px 16px;
+ }
+}
+
+ @media screen and (min-width: 768px) {
+     .container {
+       min-width: 768px;
+       background-image: url(./heroTablet.jpg);
+       padding: 89px 194px 88px 194px;
+
+
+     }
+ }
+
+ @media screen and (min-width: 1024px) {
+     .container {
+       background-image: url(./desktop.jpg);
+       padding: 164px 322px 163px 322px;
+        min-width: 1024px;
+      
+
+
+     }
+
+ }
+
+ @media screen and (min-width: 2560px) {
+     .container {
+        background-image: url(./desktopmask.jpg);
+        width: 1170px;
+        padding: 164px 395px 163px 395px;
+        background-size: 1170px
+
+     }
+ }

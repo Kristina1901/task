@@ -1,0 +1,36 @@
+   .container {
+    background: rgba(255, 255, 255, 1);
+    padding: 13px 16px 13px 23px
+   }
+    @media screen and (min-width: 360px) {
+     .container {
+         min-width: 360px;
+       
+         
+     }
+    }
+
+    @media screen and (min-width: 768px) {
+    .container {
+            min-width: 768px;
+          
+           
+    
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+    .container {
+            min-width: 1024px;
+           
+    
+        }
+        
+    }
+    @media screen and (min-width: 2560px) {
+    .container {
+            min-width: 1170px;
+           
+    
+        }
+    }

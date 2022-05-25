@@ -1,0 +1,18 @@
+.button {
+    background: #F4E041;
+    border-radius: 80px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    border: 0;
+    width: 100px;
+    text-align: center;
+    height: 34px;
+    padding: 0;
+}
+.button:first-child {
+  margin-right: 10px;
+  
+}
