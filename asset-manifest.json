@@ -1,13 +1,19 @@
 {
   "files": {
-    "main.css": "/task/n/static/css/main.7acaea2f.css",
-    "main.js": "/task/n/static/js/main.bc46ddd9.js",
+    "main.css": "/task/n/static/css/main.ddde186d.css",
+    "main.js": "/task/n/static/js/main.63605a43.js",
+    "static/media/desktopmask.jpg": "/task/n/static/media/desktopmask.53587d0a44bd94dccee8.jpg",
+    "static/media/desktop.jpg": "/task/n/static/media/desktop.e64bb82fc8d10042b17c.jpg",
+    "static/media/heroTablet.jpg": "/task/n/static/media/heroTablet.f3478723b92ba1ef8591.jpg",
+    "static/media/heroMobile.jpg": "/task/n/static/media/heroMobile.43e8ab509e7dc340f66c.jpg",
+    "static/media/logo.svg": "/task/n/static/media/logo.d1de4d295f02a160968994d21d5abcf8.svg",
+    "static/media/labe.svg": "/task/n/static/media/labe.c989a43d6ae68c5eb687f35e38ad6be2.svg",
     "index.html": "/task/n/index.html",
-    "main.7acaea2f.css.map": "/task/n/static/css/main.7acaea2f.css.map",
-    "main.bc46ddd9.js.map": "/task/n/static/js/main.bc46ddd9.js.map"
+    "main.ddde186d.css.map": "/task/n/static/css/main.ddde186d.css.map",
+    "main.63605a43.js.map": "/task/n/static/js/main.63605a43.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.bc46ddd9.js"
+    "static/css/main.ddde186d.css",
+    "static/js/main.63605a43.js"
   ]
 }
