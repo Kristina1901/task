@@ -1,0 +1,104 @@
+  .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
+
+
+  }
+  .wrapperText {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  @media screen and (min-width: 360px) {
+      .container {
+          min-width: 360px;
+          background-image: url(./heroMobile.jpg);
+          padding: 40px 16px 71px 16px;
+      }
+          .wrapperText {
+              width: 328px;
+          }
+  }
+
+  @media screen and (min-width: 768px) {
+      .container {
+          min-width: 768px;
+          background-image: url(./heroTablet.jpg);
+          padding: 89px 194px 88px 194px;
+
+
+      }
+          .wrapperText {
+              width: 380px;
+          }
+  }
+
+  @media screen and (min-width: 1024px) {
+      .container {
+          background-image: url(./desktop.jpg);
+          padding: 164px 322px 163px 322px;
+          min-width: 1024px;
+
+
+
+      }
+          .wrapperText {
+              width: 380px;
+          }
+
+  }
+
+  @media screen and (min-width: 2560px) {
+      .container {
+          background-image: url(./desktopmask.jpg);
+          width: 1170px;
+          padding: 164px 395px 163px 395px;
+          background-size: 1170px
+      }
+          .wrapperText {
+              width: 380px;
+          }
+  }
+  
+ .paragraf {
+    margin-bottom: 32px;
+    margin-top: 21px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.header {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 40px;
+    color: #FFFFFF;
+    margin: 0;
+}
+ .headerComments {
+    text-align: center;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 40px;
+    margin-top: 0;
+    margin-bottom: 50px;
+ }
+  
+
+ 
+
+
+ 

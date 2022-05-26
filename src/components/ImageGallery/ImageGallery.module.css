@@ -19,6 +19,7 @@
         width: 328px;
         margin-bottom: 20px;
         margin-right: 0;
+       
      }
       .list { 
             grid-template-columns: 1fr

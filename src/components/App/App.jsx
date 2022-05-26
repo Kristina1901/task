@@ -3,12 +3,13 @@ import Button from 'components/Button/Button';
 import { useEffect, useState } from 'react';
 import s from 'components/App/App.module.css';
 import stylebut from 'components/Button/Button.module.css';
-import style from 'components/Section/Section.module.css';
-import pict from 'components/App/logo.svg';
-import text from 'components/App/labe.svg';
 import Section from 'components/Section/Section';
 import ImageGallery from 'components/ImageGallery/ImageGallery';
 import Loader from 'components/Loader/Loader';
+import Form from 'components/Form/Form';
+import Header from 'components/Header/Header';
+import Hero from 'components/Hero/Hero';
+import Title from 'components/Title/Title';
 export default function App() {
   const [userList, setUserList] = useState([]);
   const [page, setPage] = useState(1);
@@ -73,38 +74,15 @@ export default function App() {
     <>
       <header>
         <Container>
-          <div className={s.container}>
-            <a className={s.link} href="index.html">
-              <img src={pict} alt="logo" width="39" height="26" />
-              <img src={text} alt="logo" width="64" height="11" />
-            </a>
-            <div className={s.buttonsContainer}>
-              <Button name={'Users'} style={stylebut.button} />
-              <Button name={'Sign up'} style={stylebut.button} />
-            </div>
-          </div>
+          <Header />
         </Container>
       </header>
       <Section nameForClass={'sectionHero'}>
-        <div className={style.container}>
-          <div className={s.wrapperText}>
-            <h1 className={s.header}>
-              Test assignment for front-end developer
-            </h1>
-            <p className={s.paragraf}>
-              What defines a good front-end developer is one that has skilled
-              knowledge of HTML, CSS, JS with a vast understanding of User
-              design thinking as they'll be building web interfaces with
-              accessibility in mind. They should also be excited to learn, as
-              the world of Front-End Development keeps evolving.
-            </p>
-            <Button name={'Sign up'} style={stylebut.button} />
-          </div>
-        </div>
+        <Hero />
       </Section>
       <Section nameForClass={'sectioncomment'}>
-        <Container>
-          <h1 className={s.headerComments}>Working with GET request</h1>
+        <div className={s.wrap}>
+          <Title name={'Working with GET request'} />
           <div className={s.gallery}>
             <ImageGallery userList={userList} />
 
@@ -118,6 +96,11 @@ export default function App() {
               />
             )}
           </div>
+        </div>
+      </Section>
+      <Section nameForClass={'sectionpost'}>
+        <Container>
+          <Form />
         </Container>
       </Section>
     </>

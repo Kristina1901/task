@@ -5,9 +5,13 @@
 .name {
     margin-top: 0;
     margin-bottom: 20px;
-    width: 242px;
     text-align: center;
     word-wrap: break-word;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
 }
 .occupation {
     margin-bottom: 0px;
@@ -16,7 +20,7 @@
 .mail {
     margin-top: 0px;
     margin-bottom: 0px;
-    width: 242px;
+    
 }
 .phone {
     margin-top: 0px;
@@ -39,4 +43,48 @@
     color: rgba(0, 0, 0, 0.87);
     
       
+}
+@media screen and (min-width: 360px) {
+    .info {
+     width: 288px;
+     
+       
+    }
+        .name {
+            width: 288px;
+    
+        }
+
+
+}
+
+@media screen and (min-width: 768px) {
+.info {
+        width: 304px;
+
+    }
+        .name {
+            width: 304px;
+    
+        }
+}
+
+@media screen and (min-width: 1024px) {
+    .info {
+        width: 242px;
+    }
+        .name {
+            width: 242px;
+    
+        }
+}
+
+@media screen and (min-width: 2560px) {
+    .info {
+            width: 330px;
+        }
+                .name {
+                    width: 330px;
+        
+                }
 }

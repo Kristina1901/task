@@ -1,7 +1,6 @@
-   .container {
-   padding: 13px 16px 13px 23px;
-  
-   }
+    .container {
+        padding: 13px 16px 13px 23px;
+    }
     @media screen and (min-width: 360px) {
      .container {
          min-width: 360px;
