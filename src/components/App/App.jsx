@@ -2,6 +2,7 @@ import Container from 'components/Container/Container';
 import Button from 'components/Button/Button';
 import { useEffect, useState } from 'react';
 import s from 'components/App/App.module.css';
+import stylebut from 'components/Button/Button.module.css';
 import style from 'components/Section/Section.module.css';
 import pict from 'components/App/logo.svg';
 import text from 'components/App/labe.svg';
@@ -78,8 +79,8 @@ export default function App() {
               <img src={text} alt="logo" width="64" height="11" />
             </a>
             <div className={s.buttonsContainer}>
-              <Button name={'Users'} />
-              <Button name={'Sign up'} />
+              <Button name={'Users'} style={stylebut.button} />
+              <Button name={'Sign up'} style={stylebut.button} />
             </div>
           </div>
         </Container>
@@ -97,7 +98,7 @@ export default function App() {
               accessibility in mind. They should also be excited to learn, as
               the world of Front-End Development keeps evolving.
             </p>
-            <Button name={'Sign up'} />
+            <Button name={'Sign up'} style={stylebut.button} />
           </div>
         </div>
       </Section>
@@ -110,7 +111,11 @@ export default function App() {
             {status === 'pending' && <Loader />}
             {status === 'rejected' && { error }}
             {value && (
-              <Button name={'Show more'} handleIncrement={handleIncrement} />
+              <Button
+                name={'Show more'}
+                handleIncrement={handleIncrement}
+                style={stylebut.show}
+              />
             )}
           </div>
         </Container>

@@ -1,9 +1,8 @@
-import s from 'components/Button/Button.module.css';
 import PropTypes from 'prop-types';
-const Button = ({ name, handleIncrement }) => (
+const Button = ({ name, handleIncrement, style }) => (
   <button
     type="button"
-    className={s.button}
+    className={style}
     onClick={() => {
       handleIncrement();
     }}

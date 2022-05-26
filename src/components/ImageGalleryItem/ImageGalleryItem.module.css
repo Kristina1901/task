@@ -5,6 +5,9 @@
 .name {
     margin-top: 0;
     margin-bottom: 20px;
+    width: 242px;
+    text-align: center;
+    word-wrap: break-word;
 }
 .occupation {
     margin-bottom: 0px;
@@ -13,6 +16,7 @@
 .mail {
     margin-top: 0px;
     margin-bottom: 0px;
+    width: 242px;
 }
 .phone {
     margin-top: 0px;
@@ -25,6 +29,7 @@
     flex-direction: column;
 }
 .info {
+    word-wrap: break-word;
     text-align: center;
     font-family: 'Nunito';
     font-style: normal;
@@ -32,6 +37,6 @@
     font-size: 16px;
     line-height: 26px;
     color: rgba(0, 0, 0, 0.87);
-     
+    
       
 }
