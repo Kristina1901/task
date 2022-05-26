@@ -7,16 +7,18 @@ export default function ImageGalleryItem({
   photo,
 }) {
   return (
-    <div>
+    <div className={s.container}>
       <img src={photo} alt={name} width="70" height="70" className={s.photo} />
-      <p>{name}</p>
-      <p>{position}</p>
-      <p>
-        <a href={'mailto:' + email}>{email}</a>
-      </p>
-      <p>
-        <a href={'tel:' + phone}>{phone}</a>
-      </p>
+      <p className={s.name}>{name}</p>
+      <div className={s.info}>
+        <p className={s.occupation}>{position}</p>
+        <p className={s.mail}>
+          <a href={'mailto:' + email}>{email}</a>
+        </p>
+        <p className={s.phone}>
+          <a href={'tel:' + phone}>{phone}</a>
+        </p>
+      </div>
     </div>
   );
 }

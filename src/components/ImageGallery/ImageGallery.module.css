@@ -1,3 +1,21 @@
 .item {
     list-style-type: none;
+    padding-top: 20px;
+    padding: 20px;
+    background: #FFFFFF;
+    margin-right: 29px;
+    margin-bottom: 29px;
+    width: 282px;
+}
+.item:last-child {
+    margin-right: 0px;
+}
+.list{
+    
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  
+    
 }

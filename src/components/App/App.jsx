@@ -13,6 +13,7 @@ export default function App() {
   const [page, setPage] = useState(1);
   const [value, setValue] = useState(true);
   const [status, setStatus] = useState('idle');
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (page === 1) {
@@ -24,9 +25,7 @@ export default function App() {
             return response.json();
           } else {
             return Promise.reject(
-              new Error(
-                `Sorry, there are no images matching your search query. Please try again.`
-              )
+              new Error(`Sorry, there are no users. Please try again.`)
             );
           }
         })
@@ -36,6 +35,7 @@ export default function App() {
         });
     }
     if (page !== 1) {
+      setValue(false);
       setStatus('pending');
       fetch(
         `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${page}&count=6`
@@ -43,6 +43,7 @@ export default function App() {
         .then(response => {
           if (response.ok) {
             setStatus('resolved');
+            setValue(true);
             return response.json();
           } else {
             setStatus('rejected');
@@ -59,7 +60,8 @@ export default function App() {
           if (total_pages === page) {
             setValue(false);
           }
-        });
+        })
+        .catch(error => setError(error) && setStatus('rejected'));
     }
   }, [page]);
 
@@ -102,11 +104,15 @@ export default function App() {
       <Section nameForClass={'sectioncomment'}>
         <Container>
           <h1 className={s.headerComments}>Working with GET request</h1>
-          <ImageGallery userList={userList} />
-          {status === 'pending' && <Loader />}
-          {value && (
-            <Button name={'Show more'} handleIncrement={handleIncrement} />
-          )}
+          <div className={s.gallery}>
+            <ImageGallery userList={userList} />
+
+            {status === 'pending' && <Loader />}
+            {status === 'rejected' && { error }}
+            {value && (
+              <Button name={'Show more'} handleIncrement={handleIncrement} />
+            )}
+          </div>
         </Container>
       </Section>
     </>
