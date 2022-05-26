@@ -7,10 +7,12 @@ import pict from 'components/App/logo.svg';
 import text from 'components/App/labe.svg';
 import Section from 'components/Section/Section';
 import ImageGallery from 'components/ImageGallery/ImageGallery';
+import Loader from 'components/Loader/Loader';
 export default function App() {
   const [userList, setUserList] = useState([]);
   const [page, setPage] = useState(1);
   const [value, setValue] = useState(true);
+  const [status, setStatus] = useState('idle');
 
   useEffect(() => {
     if (page === 1) {
@@ -34,13 +36,16 @@ export default function App() {
         });
     }
     if (page !== 1) {
+      setStatus('pending');
       fetch(
         `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${page}&count=6`
       )
         .then(response => {
           if (response.ok) {
+            setStatus('resolved');
             return response.json();
           } else {
+            setStatus('rejected');
             return Promise.reject(
               new Error(
                 `Sorry, there are no images matching your search query. Please try again.`
@@ -98,6 +103,7 @@ export default function App() {
         <Container>
           <h1 className={s.headerComments}>Working with GET request</h1>
           <ImageGallery userList={userList} />
+          {status === 'pending' && <Loader />}
           {value && (
             <Button name={'Show more'} handleIncrement={handleIncrement} />
           )}

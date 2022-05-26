@@ -1,3 +1,4 @@
+import s from 'components/ImageGalleryItem/ImageGalleryItem.module.css';
 export default function ImageGalleryItem({
   name,
   email,
@@ -7,11 +8,15 @@ export default function ImageGalleryItem({
 }) {
   return (
     <div>
-      <img src={photo} alt={name} />
+      <img src={photo} alt={name} width="70" height="70" className={s.photo} />
       <p>{name}</p>
       <p>{position}</p>
-      <p>{email}</p>
-      <p>{phone}</p>
+      <p>
+        <a href={'mailto:' + email}>{email}</a>
+      </p>
+      <p>
+        <a href={'tel:' + phone}>{phone}</a>
+      </p>
     </div>
   );
 }

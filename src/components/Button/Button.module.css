@@ -16,3 +16,9 @@
   margin-right: 10px;
   
 }
+.button:focus {
+  background: #F4E041;
+}
+.button:hover  {
+  background: #F4E041;
+}
