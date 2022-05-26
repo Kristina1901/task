@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/task/static/css/main.006b394b.css",
+    "main.css": "/task/static/css/main.ae97025f.css",
     "main.js": "/task/static/js/main.02f36714.js",
-    "static/media/desktopmask.jpg": "/task/static/media/desktopmask.53587d0a44bd94dccee8.jpg",
-    "static/media/desktop.jpg": "/task/static/media/desktop.e64bb82fc8d10042b17c.jpg",
-    "static/media/heroTablet.jpg": "/task/static/media/heroTablet.f3478723b92ba1ef8591.jpg",
-    "static/media/heroMobile.jpg": "/task/static/media/heroMobile.43e8ab509e7dc340f66c.jpg",
+    "static/media/desktop.jpg": "/task/static/media/desktop.e79b42ea171ff70e9d02.jpg",
+    "static/media/desktopmask.jpg": "/task/static/media/desktopmask.f579cd01a4103095a93f.jpg",
+    "static/media/heroTablet.jpg": "/task/static/media/heroTablet.2e097823bc12ef7a08cf.jpg",
+    "static/media/heroMobile.jpg": "/task/static/media/heroMobile.c9605b0afe01be177124.jpg",
     "static/media/logo.svg": "/task/static/media/logo.d1de4d295f02a160968994d21d5abcf8.svg",
     "static/media/labe.svg": "/task/static/media/labe.c989a43d6ae68c5eb687f35e38ad6be2.svg",
     "index.html": "/task/index.html",
-    "main.006b394b.css.map": "/task/static/css/main.006b394b.css.map",
+    "main.ae97025f.css.map": "/task/static/css/main.ae97025f.css.map",
     "main.02f36714.js.map": "/task/static/js/main.02f36714.js.map"
   },
   "entrypoints": [
-    "static/css/main.006b394b.css",
+    "static/css/main.ae97025f.css",
     "static/js/main.02f36714.js"
   ]
 }
