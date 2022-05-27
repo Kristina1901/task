@@ -1,12 +1,152 @@
 .post {
     padding-top: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 100px;
+  
 }
 .form {
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    
+
 }
 @media screen and (min-width: 360px) {
     .form {
-        min-width: 328px;
+        width: 328px;
     }
 }
+@media screen and (min-width: 768px) {
+    .form {
+        width: 380px;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .form {
+       width: 380px;
+    }
+}
+ @media screen and (min-width: 2560px) {
+    .form {
+           width: 380px;
+        }
+ }
+ .input {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 16px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #7E7E7E;
+  border: 1px solid #D0CFCF;
+  margin-bottom: 50px;
+ }
+ input:nth-child(3) {
+    margin-bottom: 0px;
+ }
+ .exphone {
+    margin-top: 4px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+   color: #7E7E7E;
+ }
+ .text {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: rgba(0, 0, 0, 0.87);
+ }
+ .radio{
+  display: flex;
+  flex-direction: column;
+ }
+ .label {
+     margin-bottom: 7px;
+ }
+ .label:nth-child(4) {
+    margin-bottom: 0
+ }
+ .radioInput {
+     margin-right: 12px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: rgba(0, 0, 0, 0.87);
+ }
+ .upload {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.87);
+    border-radius: 4px 0px 0px 4px;
+    width: 83px;
+    margin-top: 47px;
+    padding: 14px;
+ }
+ .inputLoad {
+   visibility: hidden;
+  
+ }
+ .photoLoader {
+   margin-top: 47px;
+   display: flex;
+   margin-bottom: 50px;
+ }
+ .loaderText {
+     display: block;
+ }
+ s.textUpload {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.87);
+    text-align: center;
+ }
+ .thumb {
+    width: 83px;
+    border: 1px solid rgba(0, 0, 0, 0.87);
+    border-radius: 4px 0px 0px 4px;
+    padding-right: 14px;
+    padding-left: 14px;
+    padding-bottom: 12px;
+   
+ }
+ .inputLoaderText{
+    background: #F8F8F8;
+    border: 1px solid #D0CFCF;
+    border-radius: 4px;
+    display: block;
+    width: 297px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #7E7E7E;
+    padding-left: 16px;
+    padding-bottom: 16px;
+    padding-top: 14px;
+ }
+ .btnThumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }

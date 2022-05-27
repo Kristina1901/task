@@ -31,7 +31,7 @@
   font-size: 16px;
   line-height: 26px;
   border: 0;
-  width: 100px;
+  width: 120px;
   text-align: center;
   height: 34px;
   padding: 0;
@@ -46,3 +46,17 @@
   background: #F4E041;
 }
 
+.signUp {
+  background:#B4B4B4;
+  border-radius: 80px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.87);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  border: 0;
+  width: 100px;
+  text-align: center;
+  height: 34px;
+  padding: 0;
+}

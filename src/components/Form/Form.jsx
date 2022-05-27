@@ -1,51 +1,75 @@
-import PropTypes from 'prop-types';
-import { useState } from 'react';
 import s from 'components/Form/Form.module.css';
 import Title from 'components/Title/Title';
-export default function Searchbar({ onSubmit }) {
-  const [imageName, setImageName] = useState('');
-  const handleNameChange = event => {
-    setImageName(event.target.value.toLowerCase());
-  };
-  const handleSubmit = event => {
-    event.preventDefault();
+import Button from 'components/Button/Button';
+import stl from 'components/Button/Button.module.css';
+export default function Form({ positionList }) {
+  // const handleNameChange = event => {
+  //   setImageName(event.target.value.toLowerCase());
+  // };
+  // const handleSubmit = event => {
+  //   event.preventDefault();
 
-    onSubmit(imageName);
-  };
-
+  //   onSubmit(imageName);
+  // };
   return (
     <div className={s.post}>
       <Title name={'Working with POST request'} />
-      <form onSubmit={handleSubmit} className={s.form}>
+      <form className={s.form}>
         <input
           type="text"
           autoComplete="off"
           autoFocus
-          value={imageName}
           placeholder="Your name"
-          onChange={handleNameChange}
+          className={s.input}
         />
         <input
           type="text"
           autoComplete="off"
           autoFocus
-          value={imageName}
           placeholder="Email"
-          onChange={handleNameChange}
+          className={s.input}
         />
         <input
           type="text"
           autoComplete="off"
           autoFocus
-          value={imageName}
           placeholder="Phone"
-          onChange={handleNameChange}
+          className={s.input}
         />
+        <span className={s.exphone}>+38 (XXX) XXX - XX - XX</span>
+        <p className={s.text}>Select your position</p>
+        <div className={s.radio}>
+          {positionList.map(({ id, name }) => (
+            <label key={id} className={s.label}>
+              <input
+                type="radio"
+                name="positiont"
+                value={name}
+                id={id}
+                className={s.radioInput}
+              />
+              {name}
+            </label>
+          ))}
+        </div>
+
+        <div className={s.photoLoader}>
+          <div className={s.thumb}>
+            <label className={s.textUpload}>
+              <input id="files" type="file" className={s.inputLoad} />
+              Upload
+            </label>
+          </div>
+          <input
+            type="text"
+            className={s.inputLoaderText}
+            placeholder="Upload your photo"
+          />
+        </div>
+        <div className={s.btnThumb}>
+          <Button name={'Sign up'} style={stl.signUp} />
+        </div>
       </form>
     </div>
   );
 }
-
-Searchbar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};

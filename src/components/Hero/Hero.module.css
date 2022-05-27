@@ -22,7 +22,7 @@
           padding: 40px 16px 71px 16px;
       }
           .wrapperText {
-              min-width: 328px;
+              width: 328px;
           }
   }
 
@@ -35,7 +35,7 @@
 
       }
           .wrapperText {
-              min-width: 380px;
+              width: 380px;
           }
   }
 
@@ -49,7 +49,7 @@
 
       }
           .wrapperText {
-              min-width: 380px;
+             width: 380px;
           }
 
   }
@@ -62,7 +62,7 @@
           background-size: 1170px
       }
           .wrapperText {
-              min-width: 380px;
+              width: 380px;
           }
   }
   

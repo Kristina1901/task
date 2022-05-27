@@ -16,7 +16,18 @@ export default function App() {
   const [value, setValue] = useState(true);
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState(null);
+  const [positionList, setPositionList] = useState([]);
+  async function showPosition() {
+    let response = await fetch(
+      'https://frontend-test-assignment-api.abz.agency/api/v1/positions'
+    );
+    if (response.status === 200) {
+      let json = await response.json();
+      return json;
+    }
 
+    throw new Error(response.status);
+  }
   useEffect(() => {
     if (page === 1) {
       fetch(
@@ -35,6 +46,10 @@ export default function App() {
           const { users } = data;
           setUserList([...users]);
         });
+      showPosition().then(data => {
+        const { positions } = data;
+        setPositionList(positions);
+      });
     }
     if (page !== 1) {
       setValue(false);
@@ -99,9 +114,7 @@ export default function App() {
         </div>
       </Section>
       <Section nameForClass={'sectionpost'}>
-        <Container>
-          <Form />
-        </Container>
+        <Form positionList={positionList} />
       </Section>
     </>
   );
