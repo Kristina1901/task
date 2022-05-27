@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/task/static/css/main.4d3d4dce.css",
-    "main.js": "/task/static/js/main.31a0f1fb.js",
+    "main.css": "/task/static/css/main.3d734ee8.css",
+    "main.js": "/task/static/js/main.a13fa2ec.js",
     "static/media/desktop.jpg": "/task/static/media/desktop.e79b42ea171ff70e9d02.jpg",
     "static/media/desktopmask.jpg": "/task/static/media/desktopmask.f579cd01a4103095a93f.jpg",
     "static/media/heroTablet.jpg": "/task/static/media/heroTablet.2e097823bc12ef7a08cf.jpg",
@@ -9,11 +9,11 @@
     "static/media/logo.svg": "/task/static/media/logo.a0c88e7561530d0968e2ab6fe179b7fb.svg",
     "static/media/labe.svg": "/task/static/media/labe.65c56e90f3c4b58ed7202347d109be16.svg",
     "index.html": "/task/index.html",
-    "main.4d3d4dce.css.map": "/task/static/css/main.4d3d4dce.css.map",
-    "main.31a0f1fb.js.map": "/task/static/js/main.31a0f1fb.js.map"
+    "main.3d734ee8.css.map": "/task/static/css/main.3d734ee8.css.map",
+    "main.a13fa2ec.js.map": "/task/static/js/main.a13fa2ec.js.map"
   },
   "entrypoints": [
-    "static/css/main.4d3d4dce.css",
-    "static/js/main.31a0f1fb.js"
+    "static/css/main.3d734ee8.css",
+    "static/js/main.a13fa2ec.js"
   ]
 }
