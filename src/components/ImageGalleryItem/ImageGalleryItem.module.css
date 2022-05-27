@@ -46,12 +46,12 @@
 }
 @media screen and (min-width: 360px) {
     .info {
-     width: 288px;
+     min-width: 288px;
      
        
     }
         .name {
-            width: 288px;
+            min-width: 288px;
     
         }
 
@@ -60,11 +60,11 @@
 
 @media screen and (min-width: 768px) {
 .info {
-        width: 304px;
+        min-width: 304px;
 
     }
         .name {
-            width: 304px;
+            min-width: 304px;
     
         }
 }
@@ -74,17 +74,17 @@
         width: 242px;
     }
         .name {
-            width: 242px;
+            min-width: 242px;
     
         }
 }
 
 @media screen and (min-width: 2560px) {
     .info {
-            width: 330px;
+            min-width: 330px;
         }
                 .name {
-                    width: 330px;
+                    min-width: 330px;
         
                 }
 }

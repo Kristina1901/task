@@ -16,7 +16,7 @@ export default function Searchbar({ onSubmit }) {
   return (
     <div className={s.post}>
       <Title name={'Working with POST request'} />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={s.form}>
         <input
           type="text"
           autoComplete="off"

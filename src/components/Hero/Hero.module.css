@@ -22,7 +22,7 @@
           padding: 40px 16px 71px 16px;
       }
           .wrapperText {
-              width: 328px;
+              min-width: 328px;
           }
   }
 
@@ -35,7 +35,7 @@
 
       }
           .wrapperText {
-              width: 380px;
+              min-width: 380px;
           }
   }
 
@@ -49,7 +49,7 @@
 
       }
           .wrapperText {
-              width: 380px;
+              min-width: 380px;
           }
 
   }
@@ -57,12 +57,12 @@
   @media screen and (min-width: 2560px) {
       .container {
           background-image: url(./desktopmask.jpg);
-          width: 1170px;
+          min-width: 1170px;
           padding: 164px 395px 163px 395px;
           background-size: 1170px
       }
           .wrapperText {
-              width: 380px;
+              min-width: 380px;
           }
   }
   
