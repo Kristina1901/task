@@ -2,6 +2,7 @@ import s from 'components/Form/Form.module.css';
 import Title from 'components/Title/Title';
 import Button from 'components/Button/Button';
 import stl from 'components/Button/Button.module.css';
+import validator from 'validator';
 export default function Form({ positionList }) {
   // const handleNameChange = event => {
   //   setImageName(event.target.value.toLowerCase());
@@ -11,10 +12,15 @@ export default function Form({ positionList }) {
 
   //   onSubmit(imageName);
   // };
+
   return (
     <div className={s.post}>
       <Title name={'Working with POST request'} />
-      <form className={s.form}>
+      <form
+        className={s.form}
+        action=" https://frontend-test-assignment-api.abz.agency/api/v1/users"
+        method="post"
+      >
         <input
           type="text"
           autoComplete="off"

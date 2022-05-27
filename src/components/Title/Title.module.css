@@ -9,3 +9,8 @@
     margin-bottom: 50px;
 
 }
+.thumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
