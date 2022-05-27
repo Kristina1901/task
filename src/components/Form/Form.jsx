@@ -1,17 +1,29 @@
+import React from 'react';
 import s from 'components/Form/Form.module.css';
 import Title from 'components/Title/Title';
-import Button from 'components/Button/Button';
-import stl from 'components/Button/Button.module.css';
+import { useState } from 'react';
 import validator from 'validator';
-export default function Form({ positionList }) {
-  // const handleNameChange = event => {
-  //   setImageName(event.target.value.toLowerCase());
-  // };
-  // const handleSubmit = event => {
-  //   event.preventDefault();
+export default function Form({ positionList, onSubmit }) {
+  const [userForm, setUserForm] = useState([]);
+  const [userPhoto, setUserPhoto] = useState('');
 
-  //   onSubmit(imageName);
-  // };
+  function handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    setUserForm(useform => {
+      return [...useform, { [target.name]: value }];
+    });
+    if (target.name === 'photo') {
+      setUserPhoto(value);
+    }
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    onSubmit(userForm);
+    setUserForm([]);
+    setUserPhoto('');
+  };
 
   return (
     <div className={s.post}>
@@ -20,6 +32,7 @@ export default function Form({ positionList }) {
         className={s.form}
         action=" https://frontend-test-assignment-api.abz.agency/api/v1/users"
         method="post"
+        onSubmit={handleSubmit}
       >
         <input
           type="text"
@@ -27,6 +40,8 @@ export default function Form({ positionList }) {
           autoFocus
           placeholder="Your name"
           className={s.input}
+          name="name"
+          onChange={handleInputChange}
         />
         <input
           type="text"
@@ -34,6 +49,8 @@ export default function Form({ positionList }) {
           autoFocus
           placeholder="Email"
           className={s.input}
+          name="email"
+          onChange={handleInputChange}
         />
         <input
           type="text"
@@ -41,6 +58,8 @@ export default function Form({ positionList }) {
           autoFocus
           placeholder="Phone"
           className={s.input}
+          name="phone"
+          onChange={handleInputChange}
         />
         <span className={s.exphone}>+38 (XXX) XXX - XX - XX</span>
         <p className={s.text}>Select your position</p>
@@ -53,6 +72,7 @@ export default function Form({ positionList }) {
                 value={name}
                 id={id}
                 className={s.radioInput}
+                onChange={handleInputChange}
               />
               {name}
             </label>
@@ -62,7 +82,13 @@ export default function Form({ positionList }) {
         <div className={s.photoLoader}>
           <div className={s.thumb}>
             <label className={s.textUpload}>
-              <input id="files" type="file" className={s.inputLoad} />
+              <input
+                id="files"
+                type="file"
+                className={s.inputLoad}
+                onChange={handleInputChange}
+                name="photo"
+              />
               Upload
             </label>
           </div>
@@ -70,10 +96,13 @@ export default function Form({ positionList }) {
             type="text"
             className={s.inputLoaderText}
             placeholder="Upload your photo"
+            defaultValue={userPhoto}
           />
         </div>
         <div className={s.btnThumb}>
-          <Button name={'Sign up'} style={stl.signUp} />
+          <button type="submit" className={s.signUp}>
+            Sign up
+          </button>
         </div>
       </form>
     </div>

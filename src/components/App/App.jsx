@@ -17,6 +17,8 @@ export default function App() {
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState(null);
   const [positionList, setPositionList] = useState([]);
+  const [userItem, setUserItem] = useState([]);
+
   async function showPosition() {
     let response = await fetch(
       'https://frontend-test-assignment-api.abz.agency/api/v1/positions'
@@ -28,6 +30,9 @@ export default function App() {
 
     throw new Error(response.status);
   }
+  const handleSearchFormSubmit = userForm => {
+    setUserItem(userForm);
+  };
   useEffect(() => {
     if (page === 1) {
       fetch(
@@ -102,7 +107,6 @@ export default function App() {
             <ImageGallery userList={userList} />
 
             {status === 'pending' && <Loader />}
-            {status === 'rejected' && { error }}
             {value && (
               <Button
                 name={'Show more'}
@@ -114,8 +118,9 @@ export default function App() {
         </div>
       </Section>
       <Section nameForClass={'sectionpost'}>
-        <Form positionList={positionList} />
+        <Form positionList={positionList} onSubmit={handleSearchFormSubmit} />
       </Section>
+      {status === 'rejected' && { error }}
     </>
   );
 }
