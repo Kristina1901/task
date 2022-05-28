@@ -4,13 +4,8 @@ import Title from 'components/Title/Title';
 import { useState } from 'react';
 import validator from 'validator';
 export default function Form({ positionList }) {
-  let form = document.getElementById('form');
+  let formData = new FormData();
   const [userPhoto, setUserPhoto] = useState('');
-  const [userPhotoAdress, setuserPhotoAdress] = useState('');
-  const [name, setName] = useState({});
-  const [email, setEmail] = useState({});
-  const [phone, setPhone] = useState({});
-  const [position, setPosition] = useState({});
   const [statusInput, setstatusInput] = useState(true);
   const [statusInputName, setstatusInpuName] = useState(true);
   const [statusPhone, setstatusPhone] = useState(true);
@@ -19,14 +14,14 @@ export default function Form({ positionList }) {
     const value = target.value;
     if (target.name === 'photo') {
       setUserPhoto(value);
-      setuserPhotoAdress({ photo: value });
+      formData.append({ photo: value });
     }
     if (target.name === 'email') {
       if (validator.isEmail(value) !== true) {
         setstatusInput(false);
       } else {
         setstatusInput(true);
-        setEmail({ email: value });
+        formData.append({ email: value });
       }
     }
 
@@ -38,7 +33,7 @@ export default function Form({ positionList }) {
         setstatusInpuName(false);
       } else {
         setstatusInpuName(true);
-        setName({ name: value });
+        formData.append({ name: value });
       }
     }
     if (target.name === 'phone') {
@@ -46,11 +41,11 @@ export default function Form({ positionList }) {
         setstatusPhone(false);
       } else {
         setstatusPhone(true);
-        setPhone({ phone: value });
+        formData.append({ phone: value });
       }
     }
     if (target.type === 'radio') {
-      setPosition({ position: event.target.id });
+      formData.append({ position_id: event.target.id });
     }
   }
   async function getToken() {
@@ -65,28 +60,17 @@ export default function Form({ positionList }) {
       })
       .then(data => {
         const { token } = data;
-        // setToken(token);
         return token;
       })
-      .then(token => UserRegist(token));
+      .then(token => userRegist(token));
   }
-  async function UserRegist(key) {
+  async function userRegist(key) {
     let formData = new FormData();
-    // formData.append('name', `${name}`);
-    // formData.append('email', `${email}`);
-    // formData.append('phone', `${phone}`);
-    // formData.append('photo', `${userPhotoAdress}`);
-    // formData.append('position_id', `${position}`);
-    formData.append('name', name);
-    formData.append('email', email);
-    formData.append('phone', phone);
-    formData.append('photo', userPhotoAdress);
-    formData.append('position_id', position);
     let response = await fetch(
       'https://frontend-test-assignment-api.abz.agency/api/v1/users',
       {
         method: 'POST',
-        body: new FormData(form),
+        body: formData,
         headers: {
           Token: key,
         },
@@ -101,22 +85,6 @@ export default function Form({ positionList }) {
   async function handleSubmit(event) {
     event.preventDefault();
     getToken();
-    // let response = await fetch(
-    //   'https://frontend-test-assignment-api.abz.agency/api/v1/users',
-    //   {
-    //     method: 'POST',
-    //     headers: {
-    //       Token: token,
-    //     },
-    //     body: new FormData(form),
-    //   }
-    // );
-    // response
-    //   .json()
-    //   .then(data => {
-    //     console.log(data);
-    //   })
-    //   .then(setToken(''));
   }
 
   return (
