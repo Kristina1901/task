@@ -26,7 +26,7 @@ export default function Form({ positionList, onSubmit }) {
         setstatusInput(false);
       } else {
         setstatusInput(true);
-        setEmail({ email: value });
+        setEmail({ name: value });
       }
     }
 
@@ -54,7 +54,7 @@ export default function Form({ positionList, onSubmit }) {
     }
   }
   const handleSubmit = event => {
-    // event.preventDefault();
+    event.preventDefault();
     setUserForm([userPhotoAdress, name, email, phone, position]);
     onSubmit(userForm);
   };

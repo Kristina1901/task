@@ -17,7 +17,8 @@ export default function App() {
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState(null);
   const [positionList, setPositionList] = useState([]);
-  const [userItem, setUserItem] = useState([]);
+  const [userItem, setUserItem] = useState(null);
+  const [token, setToken] = useState('');
 
   async function showPosition() {
     let response = await fetch(
@@ -30,6 +31,23 @@ export default function App() {
 
     throw new Error(response.status);
   }
+  async function UserRegist() {
+    const response = await fetch(
+      'https://frontend-test-assignment-api.abz.agency/api/v1/users',
+      {
+        method: 'POST',
+        headers: {
+          Token: token,
+        },
+        body: `${setUserItem}`,
+      }
+    );
+
+    response.json().then(data => {
+      console.log(data);
+    });
+  }
+
   const handleSearchFormSubmit = userForm => {
     setUserItem(userForm);
   };
@@ -70,9 +88,7 @@ export default function App() {
           } else {
             setStatus('rejected');
             return Promise.reject(
-              new Error(
-                `Sorry, there are no images matching your search query. Please try again.`
-              )
+              new Error(`Sorry, there are no users. Please try again.`)
             );
           }
         })
@@ -85,7 +101,23 @@ export default function App() {
         })
         .catch(error => setError(error) && setStatus('rejected'));
     }
-  }, [page]);
+    if (userItem !== null) {
+      fetch(`https://frontend-test-assignment-api.abz.agency/api/v1/token`)
+        .then(response => {
+          if (response.ok) {
+            let data = response.json();
+            return data;
+          } else {
+            return Promise.reject(new Error(`Sorry, please try again.`));
+          }
+        })
+        .then(data => {
+          const { token } = data;
+          setToken(token);
+        })
+        .then(UserRegist());
+    }
+  }, [page, userItem]);
 
   function handleIncrement() {
     setPage(page + 1);
