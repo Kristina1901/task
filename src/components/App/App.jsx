@@ -17,8 +17,8 @@ export default function App() {
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState(null);
   const [positionList, setPositionList] = useState([]);
-  const [userItem, setUserItem] = useState(null);
-  const [token, setToken] = useState('');
+  // const [userItem, setUserItem] = useState(null);
+  // const [token, setToken] = useState('');
 
   async function showPosition() {
     let response = await fetch(
@@ -31,26 +31,9 @@ export default function App() {
 
     throw new Error(response.status);
   }
-  async function UserRegist() {
-    const response = await fetch(
-      'https://frontend-test-assignment-api.abz.agency/api/v1/users',
-      {
-        method: 'POST',
-        headers: {
-          Token: token,
-        },
-        body: `${setUserItem}`,
-      }
-    );
-
-    response.json().then(data => {
-      console.log(data);
-    });
-  }
-
-  const handleSearchFormSubmit = userForm => {
-    setUserItem(userForm);
-  };
+  // const handleSearchFormSubmit = userForm => {
+  //   setUserItem(userForm);
+  // };
   useEffect(() => {
     if (page === 1) {
       fetch(
@@ -101,23 +84,24 @@ export default function App() {
         })
         .catch(error => setError(error) && setStatus('rejected'));
     }
-    if (userItem !== null) {
-      fetch(`https://frontend-test-assignment-api.abz.agency/api/v1/token`)
-        .then(response => {
-          if (response.ok) {
-            let data = response.json();
-            return data;
-          } else {
-            return Promise.reject(new Error(`Sorry, please try again.`));
-          }
-        })
-        .then(data => {
-          const { token } = data;
-          setToken(token);
-        })
-        .then(UserRegist());
-    }
-  }, [page, userItem]);
+    // if (userItem !== null) {
+    //   fetch(`https://frontend-test-assignment-api.abz.agency/api/v1/token`)
+    //     .then(response => {
+    //       if (response.ok) {
+    //         let data = response.json();
+    //         return data;
+    //       } else {
+    //         return Promise.reject(new Error(`Sorry, please try again.`));
+    //       }
+    //     })
+    //     .then(data => {
+    //       const { token } = data;
+    //       setToken(token);
+    //       return token;
+    //     })
+    //     .then(token => UserRegist(token));
+    // }
+  }, [page]);
 
   function handleIncrement() {
     setPage(page + 1);
@@ -150,7 +134,7 @@ export default function App() {
         </div>
       </Section>
       <Section nameForClass={'sectionpost'}>
-        <Form positionList={positionList} onSubmit={handleSearchFormSubmit} />
+        <Form positionList={positionList} />
       </Section>
       {status === 'rejected' && { error }}
     </>

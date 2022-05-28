@@ -3,8 +3,9 @@ import s from 'components/Form/Form.module.css';
 import Title from 'components/Title/Title';
 import { useState } from 'react';
 import validator from 'validator';
-export default function Form({ positionList, onSubmit }) {
-  const [userForm, setUserForm] = useState(null);
+export default function Form({ positionList }) {
+  let form = document.getElementById('form');
+  // const [userForm, setUserForm] = useState(null);
   const [userPhoto, setUserPhoto] = useState('');
   const [userPhotoAdress, setuserPhotoAdress] = useState('');
   const [name, setName] = useState({});
@@ -14,6 +15,7 @@ export default function Form({ positionList, onSubmit }) {
   const [statusInput, setstatusInput] = useState(true);
   const [statusInputName, setstatusInpuName] = useState(true);
   const [statusPhone, setstatusPhone] = useState(true);
+  // const [token, setToken] = useState('');
   function handleInputChange(event) {
     const target = event.target;
     const value = target.value;
@@ -26,7 +28,7 @@ export default function Form({ positionList, onSubmit }) {
         setstatusInput(false);
       } else {
         setstatusInput(true);
-        setEmail({ name: value });
+        setEmail({ email: value });
       }
     }
 
@@ -53,16 +55,76 @@ export default function Form({ positionList, onSubmit }) {
       setPosition({ position: event.target.id });
     }
   }
-  const handleSubmit = event => {
+  async function getToken() {
+    fetch(`https://frontend-test-assignment-api.abz.agency/api/v1/token`)
+      .then(response => {
+        if (response.ok) {
+          let data = response.json();
+          return data;
+        } else {
+          return Promise.reject(new Error(`Sorry, please try again.`));
+        }
+      })
+      .then(data => {
+        const { token } = data;
+        // setToken(token);
+        return token;
+      })
+      .then(token => UserRegist(token));
+  }
+  async function UserRegist(key) {
+    let formData = new FormData();
+    // formData.append('name', `${name}`);
+    // formData.append('email', `${email}`);
+    // formData.append('phone', `${phone}`);
+    // formData.append('photo', `${userPhotoAdress}`);
+    // formData.append('position_id', `${position}`);
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('phone', phone);
+    formData.append('photo', userPhotoAdress);
+    formData.append('position_id', position);
+    let response = await fetch(
+      'https://frontend-test-assignment-api.abz.agency/api/v1/users',
+      {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          Token: key,
+        },
+      }
+    );
+    response.json().then(data => {
+      console.log(data);
+    });
+    // .then(setToken(''));
+  }
+
+  async function handleSubmit(event) {
     event.preventDefault();
-    setUserForm([userPhotoAdress, name, email, phone, position]);
-    onSubmit(userForm);
-  };
+    getToken();
+    // let response = await fetch(
+    //   'https://frontend-test-assignment-api.abz.agency/api/v1/users',
+    //   {
+    //     method: 'POST',
+    //     headers: {
+    //       Token: token,
+    //     },
+    //     body: new FormData(form),
+    //   }
+    // );
+    // response
+    //   .json()
+    //   .then(data => {
+    //     console.log(data);
+    //   })
+    //   .then(setToken(''));
+  }
 
   return (
     <div className={s.post}>
       <Title name={'Working with POST request'} />
-      <form className={s.form} onSubmit={handleSubmit}>
+      <form className={s.form} id="form" onSubmit={handleSubmit}>
         <input
           type="text"
           autoComplete="off"
@@ -97,8 +159,8 @@ export default function Form({ positionList, onSubmit }) {
             <label key={id} className={s.label}>
               <input
                 type="radio"
-                name="position"
-                value={name}
+                name="position_id"
+                value={id}
                 id={id}
                 className={s.radioInput}
                 onChange={handleInputChange}
