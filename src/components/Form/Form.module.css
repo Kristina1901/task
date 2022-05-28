@@ -46,6 +46,9 @@
   border: 1px solid #D0CFCF;
   margin-bottom: 50px;
  }
+ .input:focus {
+   border: 1px solid #D0CFCF;
+ }
  
  input:nth-child(3) {
     margin-bottom: 0px;
@@ -78,13 +81,28 @@
     margin-bottom: 0
  }
  .radioInput {
-     margin-right: 12px;
+    height: 20px;
+    width: 20px;
+    margin-right: 12px;
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 26px;
     color: rgba(0, 0, 0, 0.87);
+ }
+ .radioInput:checked:after {
+      width: 15px;
+      height: 15px;
+      border-radius: 15px;
+      top: 0px;
+      left: 3px;
+      position: relative;
+      background-color:  rgba(0, 189, 211, 1);
+      content: '';
+      display: inline-block;
+      visibility: visible;
+      border: 2px solid white;
  }
  .upload {
     font-family: 'Nunito';
@@ -164,4 +182,21 @@
     text-align: center;
     height: 34px;
     padding: 0;
+ }
+ .invalidInput {
+   border: 2px solid #CB3D40;
+   border-radius: 4px;
+   padding-top: 14px;
+   padding-bottom: 14px;
+   padding-left: 16px;
+   font-family: 'Nunito';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 26px;
+   margin-bottom: 50px;
+ }
+ .invalidInput:focus {
+   border: 2px solid #CB3D40;
+  
  }

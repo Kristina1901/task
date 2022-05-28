@@ -4,42 +4,71 @@ import Title from 'components/Title/Title';
 import { useState } from 'react';
 import validator from 'validator';
 export default function Form({ positionList, onSubmit }) {
-  const [userForm, setUserForm] = useState([]);
+  const [userForm, setUserForm] = useState(null);
   const [userPhoto, setUserPhoto] = useState('');
-
+  const [userPhotoAdress, setuserPhotoAdress] = useState('');
+  const [name, setName] = useState({});
+  const [email, setEmail] = useState({});
+  const [phone, setPhone] = useState({});
+  const [position, setPosition] = useState({});
+  const [statusInput, setstatusInput] = useState(true);
+  const [statusInputName, setstatusInpuName] = useState(true);
+  const [statusPhone, setstatusPhone] = useState(true);
   function handleInputChange(event) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    setUserForm(useform => {
-      return [...useform, { [target.name]: value }];
-    });
+    const value = target.value;
     if (target.name === 'photo') {
       setUserPhoto(value);
+      setuserPhotoAdress({ photo: value });
+    }
+    if (target.name === 'email') {
+      if (validator.isEmail(value) !== true) {
+        setstatusInput(false);
+      } else {
+        setstatusInput(true);
+        setEmail({ email: value });
+      }
+    }
+
+    if (target.name === 'name') {
+      if (
+        validator.isFloat(value, 'uk-UA', { min: 2, max: 62 }) ||
+        validator.isAlpha(value, 'uk-UA') !== true
+      ) {
+        setstatusInpuName(false);
+      } else {
+        setstatusInpuName(true);
+        setName({ name: value });
+      }
+    }
+    if (target.name === 'phone') {
+      if (validator.isMobilePhone(value, 'uk-UA') !== true) {
+        setstatusPhone(false);
+      } else {
+        setstatusPhone(true);
+        setPhone({ phone: value });
+      }
+    }
+    if (target.type === 'radio') {
+      setPosition({ position: event.target.id });
     }
   }
-
   const handleSubmit = event => {
-    event.preventDefault();
+    // event.preventDefault();
+    setUserForm([userPhotoAdress, name, email, phone, position]);
     onSubmit(userForm);
-    setUserForm([]);
-    setUserPhoto('');
   };
 
   return (
     <div className={s.post}>
       <Title name={'Working with POST request'} />
-      <form
-        className={s.form}
-        action=" https://frontend-test-assignment-api.abz.agency/api/v1/users"
-        method="post"
-        onSubmit={handleSubmit}
-      >
+      <form className={s.form} onSubmit={handleSubmit}>
         <input
           type="text"
           autoComplete="off"
           autoFocus
           placeholder="Your name"
-          className={s.input}
+          className={statusInputName === true ? s.input : s.invalidInput}
           name="name"
           onChange={handleInputChange}
         />
@@ -48,7 +77,7 @@ export default function Form({ positionList, onSubmit }) {
           autoComplete="off"
           autoFocus
           placeholder="Email"
-          className={s.input}
+          className={statusInput === true ? s.input : s.invalidInput}
           name="email"
           onChange={handleInputChange}
         />
@@ -57,7 +86,7 @@ export default function Form({ positionList, onSubmit }) {
           autoComplete="off"
           autoFocus
           placeholder="Phone"
-          className={s.input}
+          className={statusPhone === true ? s.input : s.invalidInput}
           name="phone"
           onChange={handleInputChange}
         />
@@ -68,7 +97,7 @@ export default function Form({ positionList, onSubmit }) {
             <label key={id} className={s.label}>
               <input
                 type="radio"
-                name="positiont"
+                name="position"
                 value={name}
                 id={id}
                 className={s.radioInput}
