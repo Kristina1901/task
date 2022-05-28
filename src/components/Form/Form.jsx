@@ -5,7 +5,6 @@ import { useState } from 'react';
 import validator from 'validator';
 export default function Form({ positionList }) {
   let form = document.getElementById('form');
-  // const [userForm, setUserForm] = useState(null);
   const [userPhoto, setUserPhoto] = useState('');
   const [userPhotoAdress, setuserPhotoAdress] = useState('');
   const [name, setName] = useState({});
@@ -15,7 +14,6 @@ export default function Form({ positionList }) {
   const [statusInput, setstatusInput] = useState(true);
   const [statusInputName, setstatusInpuName] = useState(true);
   const [statusPhone, setstatusPhone] = useState(true);
-  // const [token, setToken] = useState('');
   function handleInputChange(event) {
     const target = event.target;
     const value = target.value;
