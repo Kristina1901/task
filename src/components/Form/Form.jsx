@@ -4,9 +4,12 @@ import Title from 'components/Title/Title';
 import { useState } from 'react';
 import validator from 'validator';
 export default function Form({ positionList }) {
-  let formData = new FormData();
   const [userPhoto, setUserPhoto] = useState('');
   const [statusInput, setstatusInput] = useState(true);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [position, setPosition] = useState('');
   const [statusInputName, setstatusInpuName] = useState(true);
   const [statusPhone, setstatusPhone] = useState(true);
   function handleInputChange(event) {
@@ -14,14 +17,13 @@ export default function Form({ positionList }) {
     const value = target.value;
     if (target.name === 'photo') {
       setUserPhoto(value);
-      formData.append({ photo: value });
     }
     if (target.name === 'email') {
       if (validator.isEmail(value) !== true) {
         setstatusInput(false);
       } else {
         setstatusInput(true);
-        formData.append({ email: value });
+        setEmail(value);
       }
     }
 
@@ -33,7 +35,7 @@ export default function Form({ positionList }) {
         setstatusInpuName(false);
       } else {
         setstatusInpuName(true);
-        formData.append({ name: value });
+        setName(value);
       }
     }
     if (target.name === 'phone') {
@@ -41,14 +43,21 @@ export default function Form({ positionList }) {
         setstatusPhone(false);
       } else {
         setstatusPhone(true);
-        formData.append({ phone: value });
+        setPhone(value);
       }
     }
     if (target.type === 'radio') {
-      formData.append({ position_id: event.target.id });
+      setPosition(event.target.id);
     }
   }
   async function getToken() {
+    let fileField = document.querySelector('input[type="file"]');
+    let formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('phone', phone);
+    formData.append('photo', fileField.files[0]);
+    formData.append('position_id', position);
     fetch(`https://frontend-test-assignment-api.abz.agency/api/v1/token`)
       .then(response => {
         if (response.ok) {
@@ -62,15 +71,15 @@ export default function Form({ positionList }) {
         const { token } = data;
         return token;
       })
-      .then(token => userRegist(token));
+      .then(token => registUser(token, formData));
   }
-  async function userRegist(key) {
-    let formData = new FormData();
+  async function registUser(key, obj) {
     let response = await fetch(
       'https://frontend-test-assignment-api.abz.agency/api/v1/users',
       {
         method: 'POST',
-        body: formData,
+        body: obj,
+
         headers: {
           Token: key,
         },
@@ -83,7 +92,7 @@ export default function Form({ positionList }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    getToken();
+    getToken().then(setName(''));
   }
 
   return (
