@@ -79,7 +79,6 @@ export default function Form({ positionList }) {
     response.json().then(data => {
       console.log(data);
     });
-    // .then(setToken(''));
   }
 
   async function handleSubmit(event) {
