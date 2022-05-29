@@ -1,41 +1,50 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 import s from 'components/Form/Form.module.css';
 import Title from 'components/Title/Title';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import validator from 'validator';
 export default function Form({ positionList }) {
+  const [userData, setuserData] = useState({});
   const [userPhoto, setUserPhoto] = useState('');
   const [statusInput, setstatusInput] = useState(true);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [position, setPosition] = useState('');
   const [statusInputName, setstatusInpuName] = useState(true);
   const [statusPhone, setstatusPhone] = useState(true);
+  const [statusButton, setstatusButton] = useState(false);
   function handleInputChange(event) {
     const target = event.target;
     const value = target.value;
     if (target.name === 'photo') {
       setUserPhoto(value);
+      setuserData(prevState => ({
+        ...prevState,
+        photo: value,
+      }));
     }
     if (target.name === 'email') {
       if (validator.isEmail(value) !== true) {
         setstatusInput(false);
       } else {
         setstatusInput(true);
-        setEmail(value);
+        setuserData(prevState => ({
+          ...prevState,
+          email: value,
+        }));
       }
     }
 
     if (target.name === 'name') {
       if (
-        validator.isFloat(value, 'uk-UA', { min: 2, max: 62 }) ||
-        validator.isAlpha(value, 'uk-UA') !== true
+        !validator.isAlpha(value, 'uk-UA') &&
+        !validator.isAlpha(value, 'es-ES')
       ) {
         setstatusInpuName(false);
       } else {
         setstatusInpuName(true);
-        setName(value);
+        setuserData(prevState => ({
+          ...prevState,
+          name: value,
+        }));
       }
     }
     if (target.name === 'phone') {
@@ -43,21 +52,38 @@ export default function Form({ positionList }) {
         setstatusPhone(false);
       } else {
         setstatusPhone(true);
-        setPhone(value);
+        setuserData(prevState => ({
+          ...prevState,
+          phone: value,
+        }));
       }
     }
     if (target.type === 'radio') {
-      setPosition(event.target.id);
+      setuserData(prevState => ({
+        ...prevState,
+        position_id: event.target.id,
+      }));
     }
   }
-  async function getToken() {
+  useEffect(() => {
+    if (Object.keys(userData).length === 5) {
+      setstatusButton(true);
+    }
+    if (Object.keys(userData).length === 0) {
+      return;
+    }
+  }, [userData]);
+  function updateFormInput() {
     let fileField = document.querySelector('input[type="file"]');
     let formData = new FormData();
-    formData.append('name', name);
-    formData.append('email', email);
-    formData.append('phone', phone);
+    formData.append('name', userData.name);
+    formData.append('email', userData.email);
+    formData.append('phone', userData.phone);
     formData.append('photo', fileField.files[0]);
-    formData.append('position_id', position);
+    formData.append('position_id', userData.position_id);
+    return formData;
+  }
+  async function getToken() {
     fetch(`https://frontend-test-assignment-api.abz.agency/api/v1/token`)
       .then(response => {
         if (response.ok) {
@@ -71,9 +97,9 @@ export default function Form({ positionList }) {
         const { token } = data;
         return token;
       })
-      .then(token => registUser(token, formData));
+      .then(token => registerUser(token, updateFormInput()));
   }
-  async function registUser(key, obj) {
+  async function registerUser(key, obj) {
     let response = await fetch(
       'https://frontend-test-assignment-api.abz.agency/api/v1/users',
       {
@@ -92,7 +118,7 @@ export default function Form({ positionList }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    getToken().then(setName(''));
+    getToken();
   }
 
   return (
@@ -102,25 +128,24 @@ export default function Form({ positionList }) {
         <input
           type="text"
           autoComplete="off"
-          autoFocus
           placeholder="Your name"
           className={statusInputName === true ? s.input : s.invalidInput}
           name="name"
           onChange={handleInputChange}
+          minLength="2"
+          maxLength="62"
         />
         <input
           type="text"
           autoComplete="off"
-          autoFocus
           placeholder="Email"
           className={statusInput === true ? s.input : s.invalidInput}
           name="email"
           onChange={handleInputChange}
         />
         <input
-          type="text"
+          type="tel"
           autoComplete="off"
-          autoFocus
           placeholder="Phone"
           className={statusPhone === true ? s.input : s.invalidInput}
           name="phone"
@@ -165,7 +190,11 @@ export default function Form({ positionList }) {
           />
         </div>
         <div className={s.btnThumb}>
-          <button type="submit" className={s.signUp}>
+          <button
+            type="submit"
+            className={statusButton === false ? s.signUp : s.button}
+            disabled={statusButton === false ? true : false}
+          >
             Sign up
           </button>
         </div>

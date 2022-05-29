@@ -5,6 +5,8 @@
     justify-content: center;
     flex-direction: column;
     padding-bottom: 100px;
+    padding-right: 16px;
+    padding-left: 16px;
   
 }
 .form {
@@ -199,4 +201,34 @@
  .invalidInput:focus {
    border: 2px solid #CB3D40;
   
+ }
+ .input:invalid {
+   border: 2px solid #CB3D40;
+ }
+ .button {
+    background: #F4E041;
+    border-radius: 80px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    border: 0;
+    width: 100px;
+    text-align: center;
+    height: 34px;
+    padding: 0;
+ }
+
+ .button:first-child {
+    margin-right: 10px;
+
+ }
+
+ .button:focus {
+    background: #F4E041;
+ }
+
+ .button:hover {
+    background: #F4E041;
  }

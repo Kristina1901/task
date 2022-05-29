@@ -12,4 +12,11 @@
 .wrap {
     padding-top: 140px;
     background: #F8F8F8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 16px;
+    padding-left: 16px;
+    flex-direction: column;
+        
 }

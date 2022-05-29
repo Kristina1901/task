@@ -1,4 +1,6 @@
 import Container from 'components/Container/Container';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Button from 'components/Button/Button';
 import { useEffect, useState } from 'react';
 import s from 'components/App/App.module.css';
@@ -17,9 +19,6 @@ export default function App() {
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState(null);
   const [positionList, setPositionList] = useState([]);
-  // const [userItem, setUserItem] = useState(null);
-  // const [token, setToken] = useState('');
-
   async function showPosition() {
     let response = await fetch(
       'https://frontend-test-assignment-api.abz.agency/api/v1/positions'
@@ -31,9 +30,6 @@ export default function App() {
 
     throw new Error(response.status);
   }
-  // const handleSearchFormSubmit = userForm => {
-  //   setUserItem(userForm);
-  // };
   useEffect(() => {
     if (page === 1) {
       fetch(
@@ -84,23 +80,6 @@ export default function App() {
         })
         .catch(error => setError(error) && setStatus('rejected'));
     }
-    // if (userItem !== null) {
-    //   fetch(`https://frontend-test-assignment-api.abz.agency/api/v1/token`)
-    //     .then(response => {
-    //       if (response.ok) {
-    //         let data = response.json();
-    //         return data;
-    //       } else {
-    //         return Promise.reject(new Error(`Sorry, please try again.`));
-    //       }
-    //     })
-    //     .then(data => {
-    //       const { token } = data;
-    //       setToken(token);
-    //       return token;
-    //     })
-    //     .then(token => UserRegist(token));
-    // }
   }, [page]);
 
   function handleIncrement() {
@@ -137,6 +116,7 @@ export default function App() {
         <Form positionList={positionList} />
       </Section>
       {status === 'rejected' && { error }}
+      <ToastContainer />
     </>
   );
 }
