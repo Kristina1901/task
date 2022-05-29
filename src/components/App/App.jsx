@@ -1,6 +1,4 @@
 import Container from 'components/Container/Container';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Button from 'components/Button/Button';
 import { useEffect, useState } from 'react';
 import s from 'components/App/App.module.css';
@@ -116,7 +114,6 @@ export default function App() {
         <Form positionList={positionList} />
       </Section>
       {status === 'rejected' && { error }}
-      <ToastContainer />
     </>
   );
 }
