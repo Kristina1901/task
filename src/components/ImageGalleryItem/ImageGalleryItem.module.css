@@ -56,6 +56,12 @@
           width: 288px;
     
         }
+        .tooltiptextPhone {
+            width:90px
+        }
+        .tooltiptextMail { 
+            width: 90px;
+        }
 
 
 }
@@ -71,6 +77,13 @@
           
     
         }
+                .tooltiptextPhone {
+                    width: 90px
+                }
+        
+                .tooltiptextMail {
+                    width: 90px;
+                }
 }
 
 @media screen and (min-width: 1024px) {
