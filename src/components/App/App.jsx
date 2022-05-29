@@ -98,7 +98,6 @@ export default function App() {
           <Title name={'Working with GET request'} />
           <div className={s.gallery}>
             <ImageGallery userList={userList} />
-
             {status === 'pending' && <Loader />}
             {value && (
               <Button

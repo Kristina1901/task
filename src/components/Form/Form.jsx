@@ -4,21 +4,27 @@ import Title from 'components/Title/Title';
 import { useState, useEffect } from 'react';
 import validator from 'validator';
 export default function Form({ positionList }) {
+  let fileField = document.querySelector('input[type="file"]');
   const [userData, setuserData] = useState({});
   const [userPhoto, setUserPhoto] = useState('');
   const [statusInput, setstatusInput] = useState(true);
   const [statusInputName, setstatusInpuName] = useState(true);
   const [statusPhone, setstatusPhone] = useState(true);
+  const [statusPhoto, setstatusPhoto] = useState(true);
   const [statusButton, setstatusButton] = useState(false);
   function handleInputChange(event) {
     const target = event.target;
     const value = target.value;
     if (target.name === 'photo') {
-      setUserPhoto(value);
-      setuserData(prevState => ({
-        ...prevState,
-        photo: value,
-      }));
+      if (validateSize(fileField.files[0]) === true) {
+        setUserPhoto(value);
+        setuserData(prevState => ({
+          ...prevState,
+          photo: value,
+        }));
+      } else {
+        setUserPhoto('');
+      }
     }
     if (target.name === 'email') {
       if (validator.isEmail(value) !== true) {
@@ -72,8 +78,17 @@ export default function Form({ positionList }) {
       return;
     }
   }, [userData]);
+  function validateSize(input) {
+    const fileSize = fileField.files[0].size;
+    if (fileSize > 5242880) {
+      setstatusPhoto(false);
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   function updateFormInput() {
-    let fileField = document.querySelector('input[type="file"]');
     let formData = new FormData();
     formData.append('name', userData.name);
     formData.append('email', userData.email);
@@ -169,7 +184,7 @@ export default function Form({ positionList }) {
         </div>
 
         <div className={s.photoLoader}>
-          <div className={s.thumb}>
+          <div className={statusPhoto === true ? s.thumb : s.thubmError}>
             <label className={s.textUpload}>
               <input
                 id="files"
@@ -183,10 +198,13 @@ export default function Form({ positionList }) {
           </div>
           <input
             type="text"
-            className={s.inputLoaderText}
+            className={
+              statusPhoto === true ? s.inputLoaderText : s.inputLoaderTextError
+            }
             placeholder="Upload your photo"
             defaultValue={userPhoto}
           />
+          {statusPhoto === false && <span>Error text</span>}
         </div>
         <div className={s.btnThumb}>
           <button

@@ -131,7 +131,7 @@
  .loaderText {
      display: block;
  }
- s.textUpload {
+ .textUpload {
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 400;
@@ -150,9 +150,33 @@
     padding-bottom: 12px;
    
  }
+ .thubmError {
+   width: 83px;
+   border: 2px solid rgba(203, 61, 64, 1);
+   border-radius: 4px 0px 0px 4px;
+   padding-right: 14px;
+   padding-left: 14px;
+   padding-bottom: 12px;
+ }
  .inputLoaderText{
     background: #F8F8F8;
     border: 1px solid #D0CFCF;
+    border-radius: 4px;
+    display: block;
+    width: 297px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #7E7E7E;
+    padding-left: 16px;
+    padding-bottom: 16px;
+    padding-top: 14px;
+ }
+ .inputLoaderTextError {
+    background: #F8F8F8;
+    border:2px solid rgba(203, 61, 64, 1);
     border-radius: 4px;
     display: block;
     width: 297px;
