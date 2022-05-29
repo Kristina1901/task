@@ -15,13 +15,13 @@ export default function ImageGalleryItem({
         <p className={s.mail}>
           <a className={s.linkMail} href={'mailto:' + email}>
             {email}
-            <span class={s.tooltiptextMail}>{email}</span>
+            <span className={s.tooltiptextMail}>{email}</span>
           </a>
         </p>
         <p className={s.phone}>
           <a className={s.linkPhone} href={'tel:' + phone}>
             {phone}
-            <span class={s.tooltiptextPhone}>{phone}</span>
+            <span className={s.tooltiptextPhone}>{phone}</span>
           </a>
         </p>
       </div>

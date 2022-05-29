@@ -53,7 +53,7 @@
        
     }
         .name {
-           width: 288px;
+          width: 288px;
     
         }
 
@@ -62,11 +62,13 @@
 
 @media screen and (min-width: 768px) {
 .info {
-        width: 304px;
+     width:  304px;
+    
 
     }
         .name {
-           width: 304px;
+          width: 304px;
+          
     
         }
 }
@@ -74,9 +76,11 @@
 @media screen and (min-width: 1024px) {
     .info {
         width: 242px;
+       
     }
         .name {
             width: 242px;
+         
     
         }
 }
@@ -84,9 +88,11 @@
 @media screen and (min-width: 2560px) {
     .info {
             width: 330px;
+          
         }
                 .name {
                     width: 330px;
+                    
         
                 }
 }
@@ -112,7 +118,7 @@
 }
 .linkMail {
     position: relative;
-    display: inline-block;
+    display: block;
 }
 .linkMail:hover .tooltiptextMail {
     visibility: visible;
@@ -140,7 +146,7 @@
 
 .linkPhone {
     position: relative;
-    display: inline-block;
+    display: block
 }
 
 .linkPhone:hover .tooltiptextPhone {
