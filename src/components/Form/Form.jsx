@@ -206,7 +206,7 @@ export default function Form({ positionList }) {
           />
 
           {statusPhoto === false && (
-            <span className={s.errorMessage}>Error text</span>
+            <span className={s.errorMessage}>size must not exceed 5MB</span>
           )}
         </div>
         <div className={s.btnThumb}>
