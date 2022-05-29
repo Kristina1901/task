@@ -7,10 +7,8 @@
     font-size: 16px;
     line-height: 26px;
     border: 0;
-    width: 100px;
-    text-align: center;
-    height: 34px;
-    padding: 0;
+    min-width: 100px;
+    padding: 4px;
 }
 .button:first-child {
   margin-right: 10px;
@@ -31,10 +29,9 @@
   font-size: 16px;
   line-height: 26px;
   border: 0;
-  width: 120px;
+  min-width: 120px;
   text-align: center;
-  height: 34px;
-  padding: 0;
+  padding: 4px;
   margin-top: 50px;
 }
 
