@@ -1,11 +1,11 @@
   .container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-      background-size: cover;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+     background-position: 50%, 50%;
+     background-size:cover;
+     background-repeat: no-repeat;
 
 
   }
@@ -20,10 +20,20 @@
           min-width: 360px;
           background-image: url(./heroMobile.jpg);
           padding: 40px 16px 71px 16px;
+        
       }
           .wrapperText {
               width: 328px;
           }
+                   @media (min-device-pixel-ratio: 2),
+                   (min-resolution: 192dpi),
+                   (min-resolution: 2dppx) {
+                    .container {
+                            background-image: url(./phone2x.jpg);
+                          
+                    
+                        }
+                   }
   }
 
   @media screen and (min-width: 768px) {
@@ -37,6 +47,16 @@
           .wrapperText {
               width: 380px;
           }
+         @media (min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi),
+         (min-resolution: 2dppx) {
+             .container {
+                 background-image: url(./tablet2x.jpg);
+    
+    
+             }
+         }
+
   }
 
   @media screen and (min-width: 1024px) {
@@ -51,6 +71,15 @@
           .wrapperText {
              width: 380px;
           }
+                   @media (min-device-pixel-ratio: 2),
+                   (min-resolution: 192dpi),
+                   (min-resolution: 2dppx) {
+                       .container {
+                           background-image: url(./desktop2x.jpg);
+        
+        
+                       }
+                   }
 
   }
 
@@ -59,11 +88,21 @@
           background-image: url(./desktopmask.jpg);
           min-width: 1170px;
           padding: 164px 395px 163px 395px;
-          background-size: 1170px
+          background-size: 1170px;
+          background-size: contain
       }
           .wrapperText {
               width: 380px;
           }
+                   @media (min-device-pixel-ratio: 2),
+                   (min-resolution: 192dpi),
+                   (min-resolution: 2dppx) {
+                       .container {
+                           background-image: url(./desktop2x.jpg);
+        
+        
+                       }
+                   }
   }
   
  .paragraf {
