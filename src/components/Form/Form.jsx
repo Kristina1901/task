@@ -204,7 +204,10 @@ export default function Form({ positionList }) {
             placeholder="Upload your photo"
             defaultValue={userPhoto}
           />
-          {statusPhoto === false && <span>Error text</span>}
+
+          {statusPhoto === false && (
+            <span className={s.errorMessage}>Error text</span>
+          )}
         </div>
         <div className={s.btnThumb}>
           <button

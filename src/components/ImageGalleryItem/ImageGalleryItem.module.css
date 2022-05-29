@@ -20,11 +20,13 @@
 .mail {
     margin-top: 0px;
     margin-bottom: 0px;
+   
     
 }
 .phone {
     margin-top: 0px;
     margin-bottom: 0px;
+  
 }
 .container {
     display: flex;
@@ -87,4 +89,60 @@
                     width: 330px;
         
                 }
+}
+.tooltiptextMail {
+    visibility: hidden;
+    width: 276px;
+    background: rgba(0, 0, 0, 0.87);
+    color:  rgba(255, 255, 255, 1);
+    text-align: center;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    padding: 3px 16px;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1;
+    top: 42px;
+    left: 50%;
+    right: 50%;
+   
+}
+.linkMail {
+    position: relative;
+    display: inline-block;
+}
+.linkMail:hover .tooltiptextMail {
+    visibility: visible;
+}
+.tooltiptextPhone {
+    visibility: hidden;
+    background: rgba(0, 0, 0, 0.87);
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    padding: 3px 16px;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1;
+    top: 42px;
+    left: 50%;
+    right: 50%;
+    width: 272;
+
+}
+
+.linkPhone {
+    position: relative;
+    display: inline-block;
+}
+
+.linkPhone:hover .tooltiptextPhone {
+    visibility: visible;
 }
