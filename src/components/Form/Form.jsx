@@ -155,9 +155,15 @@ export default function Form({ positionList, updateListUsers }) {
         (email.value = ''),
         (name.value = ''),
         (phone.value = ''),
-        (position_id.value = ''),
-        setstatusButton(false)
+        setstatusButton(false),
+        clearRadioButtons(position_id)
       );
+    function clearRadioButtons(arr) {
+      for (var i = 0; i < arr.length; i++) {
+        let radioButton = arr[i];
+        radioButton.checked = false;
+      }
+    }
   }
   return (
     <div className={s.post}>
