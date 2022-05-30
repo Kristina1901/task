@@ -7,6 +7,14 @@ export default function ImageGalleryItem({
   position,
   photo,
 }) {
+  let arr = [];
+  while (email.length > 20) {
+    arr.push(email.slice(0, 20));
+    email = email.slice(20);
+  }
+  arr.push(email);
+
+  let mail = arr.join('\n');
   return (
     <div className={s.container}>
       <img src={photo} alt={name} width="70" height="70" className={s.photo} />
@@ -15,7 +23,7 @@ export default function ImageGalleryItem({
         <p className={s.occupation}>{position}</p>
         <p className={s.mail}>
           <a className={s.linkMail} href={'mailto:' + email}>
-            {email}
+            {mail}
             <span className={s.tooltiptextMail}>{email}</span>
           </a>
         </p>
