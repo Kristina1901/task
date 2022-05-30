@@ -10,8 +10,8 @@
     margin: 0;
     padding: 0;
     display: grid;
-    margin-bottom: -29px;
-    margin-right: -29px;
+    justify-content: center;
+  
   
     
 }
@@ -22,7 +22,8 @@
        
      }
       .list { 
-            grid-template-columns: 1fr
+            grid-template-columns: 1fr;
+            margin-bottom: -20px;
          }
 
 
@@ -33,7 +34,9 @@
            margin-bottom: 16px; margin-right: 16px;
            }
                   .list {
-                      grid-template-columns: 1fr 1fr
+                      grid-template-columns: 1fr 1fr;
+                      margin-right: -16px;
+                      margin-bottom: -16px;
                   }
                                   
  }
@@ -43,7 +46,8 @@
            margin-bottom: 29px;
         }
                   .list {
-                      grid-template-columns: 1fr 1fr 1fr
+                      grid-template-columns: 1fr 1fr 1fr;
+                      margin-bottom: -29px;
                   }
                                  
 
@@ -54,7 +58,9 @@
            margin-bottom: 29px; margin-right: 29px;
         }
                  .list {
-                     grid-template-columns: 1fr 1fr 1fr
+                     grid-template-columns: 1fr 1fr 1fr;
+                     margin-bottom: -29px;
+                     margin-right: -29px;
                  }
                               
  }

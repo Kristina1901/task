@@ -33,6 +33,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+   
 }
 .info {
     word-wrap: break-word;
@@ -43,7 +44,7 @@
     font-size: 16px;
     line-height: 26px;
     color: rgba(0, 0, 0, 0.87);
-    
+      
       
 }
 @media screen and (min-width: 360px) {
@@ -77,13 +78,7 @@
           
     
         }
-                .tooltiptextPhone {
-                    width: 90px
-                }
-        
-                .tooltiptextMail {
-                    width: 90px;
-                }
+               
 }
 
 @media screen and (min-width: 1024px) {
@@ -109,8 +104,8 @@
         
                 }
 }
-.tooltiptextMail {
-    visibility: hidden;
+/* .tooltiptextMail {
+    display: none;
     width: 276px;
     background: rgba(0, 0, 0, 0.87);
     color:  rgba(255, 255, 255, 1);
@@ -164,4 +159,4 @@
 
 .linkPhone:hover .tooltiptextPhone {
     visibility: visible;
-}
+} */

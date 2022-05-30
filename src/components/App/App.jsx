@@ -106,7 +106,7 @@ export default function App() {
             />
           )}
         </div>
-        </Section>
+      </Section>
       <Section nameForClass={'sectionpost'}>
         <Form positionList={positionList} />
       </Section>
