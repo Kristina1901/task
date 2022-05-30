@@ -10,7 +10,6 @@ import Loader from 'components/Loader/Loader';
 export default function Form({ positionList, updateListUsers }) {
   let fileField = document.querySelector('input[type="file"]');
   const [userData, setuserData] = useState({});
-  // const [userPhoto, setUserPhoto] = useState('');
   const [statusInput, setstatusInput] = useState(true);
   const [statusInputName, setstatusInpuName] = useState(true);
   const [statusPhone, setstatusPhone] = useState(true);
@@ -23,7 +22,6 @@ export default function Form({ positionList, updateListUsers }) {
     if (target.name === 'photo' && value !== '') {
       const fileSize = fileField.files[0].size;
       if (validateSize(fileSize) === true) {
-        // (value);setUserPhoto
         setstatusPhoto(true);
         setuserData(prevState => ({
           ...prevState,
@@ -31,7 +29,6 @@ export default function Form({ positionList, updateListUsers }) {
         }));
       }
       if (validateSize(fileSize) === false) {
-        // setUserPhoto('');
         setstatusPhoto(false);
       }
     }
