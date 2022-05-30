@@ -151,7 +151,17 @@ export default function Form({ positionList, updateListUsers }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    getToken().then(setuserData({}));
+    let { email, name, phone, position_id } = event.target.elements;
+    getToken()
+      .then(setuserData({}))
+      .then(
+        (email.value = ''),
+        (name.value = ''),
+        (phone.value = ''),
+        (position_id.checked = ''),
+        setstatusButton(false)
+      );
+    console.log(position_id.checked);
   }
 
   return (
@@ -221,6 +231,7 @@ export default function Form({ positionList, updateListUsers }) {
             }
             placeholder="Upload your photo"
             defaultValue={userPhoto}
+            name="photoText"
           />
           {statusPhoto === false && (
             <span className={s.errorMessage}>size must not exceed 5MB</span>
