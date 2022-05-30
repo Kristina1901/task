@@ -4,6 +4,7 @@ import Title from 'components/Title/Title';
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import validator from 'validator';
+import Loader from 'components/Loader/Loader';
 export default function Form({ positionList, updateListUsers }) {
   let fileField = document.querySelector('input[type="file"]');
   const [userData, setuserData] = useState({});
@@ -13,18 +14,21 @@ export default function Form({ positionList, updateListUsers }) {
   const [statusPhone, setstatusPhone] = useState(true);
   const [statusPhoto, setstatusPhoto] = useState(true);
   const [statusButton, setstatusButton] = useState(false);
+  const [statusLoader, setstatusLoader] = useState('idle');
   function handleInputChange(event) {
     const target = event.target;
     const value = target.value;
-    if (target.name === 'photo') {
-      if (validateSize(fileField.files[0]) === true) {
+    if (target.name === 'photo' && value !== '') {
+      const fileSize = fileField.files[0].size;
+      if (validateSize(fileSize) === true) {
         setUserPhoto(value);
         setstatusPhoto(true);
         setuserData(prevState => ({
           ...prevState,
           photo: value,
         }));
-      } else {
+      }
+      if (validateSize(fileSize) === false) {
         setUserPhoto('');
         setstatusPhoto(false);
       }
@@ -82,15 +86,31 @@ export default function Form({ positionList, updateListUsers }) {
     }
   }, [userData]);
   function validateSize(value) {
-    const fileSize = fileField.files[0].size;
-    if (fileSize > 5242880) {
+    if (value > 5242880) {
       setstatusPhoto(false);
       return false;
     } else {
       return true;
     }
   }
+  function validateResolution(e) {
+    //Initiate the JavaScript Image object.
+    var image = new Image();
 
+    //Set the Base64 string return from FileReader as source.
+    image.src = e.target.result;
+
+    //Validate the File Height and Width.
+    image.onload = function () {
+      var height = this.height;
+      var width = this.width;
+      if (height > 70 || width > 70) {
+        console.log('hi');
+      }
+      console.log('Uploaded image has valid Height and Width.');
+      return true;
+    };
+  }
   function updateFormInput() {
     let formData = new FormData();
     formData.append('name', userData.name);
@@ -101,6 +121,7 @@ export default function Form({ positionList, updateListUsers }) {
     return formData;
   }
   async function getToken() {
+    setstatusLoader('pending');
     fetch(`https://frontend-test-assignment-api.abz.agency/api/v1/token`)
       .then(response => {
         if (response.ok) {
@@ -129,9 +150,11 @@ export default function Form({ positionList, updateListUsers }) {
       }
     );
     response.json().then(data => {
+      setstatusLoader('idle');
       const { success, message } = data;
       if (success === true) {
         updateListUsers(true);
+        toast(message);
       } else {
         toast.error(message);
       }
@@ -199,7 +222,9 @@ export default function Form({ positionList, updateListUsers }) {
                 type="file"
                 className={s.inputLoad}
                 onChange={handleInputChange}
+                onLoad={validateResolution}
                 name="photo"
+                accept=".jpg, .jpeg,"
               />
               Upload
             </label>
@@ -212,19 +237,21 @@ export default function Form({ positionList, updateListUsers }) {
             placeholder="Upload your photo"
             defaultValue={userPhoto}
           />
-
           {statusPhoto === false && (
             <span className={s.errorMessage}>size must not exceed 5MB</span>
           )}
         </div>
         <div className={s.btnThumb}>
-          <button
-            type="submit"
-            className={statusButton === false ? s.signUp : s.button}
-            disabled={statusButton === false ? true : false}
-          >
-            Sign up
-          </button>
+          {statusLoader === 'pending' && <Loader />}
+          {statusLoader !== 'pending' && (
+            <button
+              type="submit"
+              className={statusButton === false ? s.signUp : s.button}
+              disabled={statusButton === false ? true : false}
+            >
+              Sign up
+            </button>
+          )}
         </div>
       </form>
     </div>
