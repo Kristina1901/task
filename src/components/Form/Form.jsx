@@ -59,6 +59,9 @@ export default function Form({ positionList, updateListUsers }) {
           name: value,
         }));
       }
+      if (value.length < 2 || value.length > 62) {
+        setstatusInpuName(false);
+      }
     }
     if (target.name === 'phone') {
       if (validator.isMobilePhone(value, 'uk-UA') !== true) {
@@ -161,8 +164,6 @@ export default function Form({ positionList, updateListUsers }) {
           className={statusInputName === true ? s.input : s.invalidInput}
           name="name"
           onChange={handleInputChange}
-          minLength="2"
-          maxLength="62"
         />
         <input
           type="text"
