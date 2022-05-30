@@ -158,10 +158,9 @@ export default function Form({ positionList, updateListUsers }) {
         (email.value = ''),
         (name.value = ''),
         (phone.value = ''),
-        (position_id.checked = ''),
+        (position_id.value = ''),
         setstatusButton(false)
       );
-    console.log(position_id.checked);
   }
 
   return (
@@ -230,7 +229,7 @@ export default function Form({ positionList, updateListUsers }) {
               statusPhoto === true ? s.inputLoaderText : s.inputLoaderTextError
             }
             placeholder="Upload your photo"
-            defaultValue={userPhoto}
+            defaultValue={userData.hasOwnProperty('photo') ? userPhoto : ''}
             name="photoText"
           />
           {statusPhoto === false && (
