@@ -13,4 +13,6 @@ const Button = ({ name, handleIncrement, style }) => (
 export default Button;
 Button.propTypes = {
   handleIncrement: PropTypes.func,
+  name: PropTypes.string.isRequired,
+  style: PropTypes.string.isRequired,
 };

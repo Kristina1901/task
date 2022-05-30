@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import s from 'components/Form/Form.module.css';
 import Title from 'components/Title/Title';
 import { useState, useEffect } from 'react';
@@ -241,3 +242,11 @@ export default function Form({ positionList, updateListUsers }) {
     </div>
   );
 }
+Form.propTypes = {
+  positionList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    })
+  ),
+  updateListUsers: PropTypes.func.isRequired,
+};

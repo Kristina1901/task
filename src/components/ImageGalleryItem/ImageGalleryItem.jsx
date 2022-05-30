@@ -1,4 +1,5 @@
 import s from 'components/ImageGalleryItem/ImageGalleryItem.module.css';
+import PropTypes from 'prop-types';
 export default function ImageGalleryItem({
   name,
   email,
@@ -28,3 +29,11 @@ export default function ImageGalleryItem({
     </div>
   );
 }
+ImageGalleryItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
+  position: PropTypes.string.isRequired,
+  photo: PropTypes.string.isRequired,
+};

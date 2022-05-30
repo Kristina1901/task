@@ -1,4 +1,5 @@
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
+import PropTypes from 'prop-types';
 import s from 'components/ImageGallery/ImageGallery.module.css';
 export default function ImageGallery({ userList }) {
   return (
@@ -18,3 +19,15 @@ export default function ImageGallery({ userList }) {
     </ul>
   );
 }
+ImageGallery.propTypes = {
+  userList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
+      position: PropTypes.string.isRequired,
+      photo: PropTypes.string.isRequired,
+    })
+  ),
+};
