@@ -10,7 +10,7 @@ import Loader from 'components/Loader/Loader';
 export default function Form({ positionList, updateListUsers }) {
   let fileField = document.querySelector('input[type="file"]');
   const [userData, setuserData] = useState({});
-  const [userPhoto, setUserPhoto] = useState('');
+  // const [userPhoto, setUserPhoto] = useState('');
   const [statusInput, setstatusInput] = useState(true);
   const [statusInputName, setstatusInpuName] = useState(true);
   const [statusPhone, setstatusPhone] = useState(true);
@@ -23,7 +23,7 @@ export default function Form({ positionList, updateListUsers }) {
     if (target.name === 'photo' && value !== '') {
       const fileSize = fileField.files[0].size;
       if (validateSize(fileSize) === true) {
-        setUserPhoto(value);
+        // (value);setUserPhoto
         setstatusPhoto(true);
         setuserData(prevState => ({
           ...prevState,
@@ -31,7 +31,7 @@ export default function Form({ positionList, updateListUsers }) {
         }));
       }
       if (validateSize(fileSize) === false) {
-        setUserPhoto('');
+        // setUserPhoto('');
         setstatusPhoto(false);
       }
     }
@@ -162,7 +162,6 @@ export default function Form({ positionList, updateListUsers }) {
         setstatusButton(false)
       );
   }
-
   return (
     <div className={s.post}>
       <Title name={'Working with POST request'} />
@@ -229,8 +228,9 @@ export default function Form({ positionList, updateListUsers }) {
               statusPhoto === true ? s.inputLoaderText : s.inputLoaderTextError
             }
             placeholder="Upload your photo"
-            defaultValue={userData.hasOwnProperty('photo') ? userPhoto : ''}
+            value={userData.hasOwnProperty('photo') ? userData.photo : ''}
             name="photoText"
+            readOnly
           />
           {statusPhoto === false && (
             <span className={s.errorMessage}>size must not exceed 5MB</span>
