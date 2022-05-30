@@ -24,7 +24,7 @@ export default function ImageGalleryItem({
         <p className={s.mail}>
           <a className={s.linkMail} href={'mailto:' + email}>
             {mail}
-            <span className={s.tooltiptextMail}>{email}</span>
+            <span className={s.tooltiptextMail}>{mail}</span>
           </a>
         </p>
         <p className={s.phone}>
