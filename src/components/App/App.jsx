@@ -10,6 +10,8 @@ import Form from 'components/Form/Form';
 import Header from 'components/Header/Header';
 import Hero from 'components/Hero/Hero';
 import Title from 'components/Title/Title';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export default function App() {
   const [userList, setUserList] = useState([]);
   const [page, setPage] = useState(1);
@@ -17,6 +19,7 @@ export default function App() {
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState(null);
   const [positionList, setPositionList] = useState([]);
+  const [update, setUpdate] = useState(false);
   async function showPosition() {
     let response = await fetch(
       'https://frontend-test-assignment-api.abz.agency/api/v1/positions'
@@ -28,6 +31,9 @@ export default function App() {
 
     throw new Error(response.status);
   }
+  const updateListUsers = value => {
+    setUpdate(value);
+  };
   useEffect(() => {
     if (page === 1) {
       fetch(
@@ -77,8 +83,30 @@ export default function App() {
           }
         })
         .catch(error => setError(error) && setStatus('rejected'));
+      if (update === true) {
+        fetch(
+          `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6`
+        )
+          .then(response => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              return Promise.reject(
+                new Error(`Sorry, there are no users. Please try again.`)
+              );
+            }
+          })
+          .then(data => {
+            const { users } = data;
+            setUserList([...users]);
+          });
+        showPosition().then(data => {
+          const { positions } = data;
+          setPositionList(positions);
+        });
+      }
     }
-  }, [page]);
+  }, [page, update]);
 
   function handleIncrement() {
     setPage(page + 1);
@@ -108,9 +136,10 @@ export default function App() {
         </div>
       </Section>
       <Section nameForClass={'sectionpost'}>
-        <Form positionList={positionList} />
+        <Form positionList={positionList} updateListUsers={updateListUsers} />
       </Section>
       {status === 'rejected' && { error }}
+      <ToastContainer />
     </>
   );
 }

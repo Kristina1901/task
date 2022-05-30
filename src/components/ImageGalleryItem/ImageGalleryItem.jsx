@@ -19,7 +19,7 @@ export default function ImageGalleryItem({
           </a>
         </p>
         <p className={s.phone}>
-          <a className={s.linkPhone} href={'tel:' + phone}>
+          <a href={'tel:' + phone} className={s.linkPhone}>
             {phone}
             <span className={s.tooltiptextPhone}>{phone}</span>
           </a>

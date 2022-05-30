@@ -2,8 +2,9 @@ import React from 'react';
 import s from 'components/Form/Form.module.css';
 import Title from 'components/Title/Title';
 import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 import validator from 'validator';
-export default function Form({ positionList }) {
+export default function Form({ positionList, updateListUsers }) {
   let fileField = document.querySelector('input[type="file"]');
   const [userData, setuserData] = useState({});
   const [userPhoto, setUserPhoto] = useState('');
@@ -18,12 +19,14 @@ export default function Form({ positionList }) {
     if (target.name === 'photo') {
       if (validateSize(fileField.files[0]) === true) {
         setUserPhoto(value);
+        setstatusPhoto(true);
         setuserData(prevState => ({
           ...prevState,
           photo: value,
         }));
       } else {
         setUserPhoto('');
+        setstatusPhoto(false);
       }
     }
     if (target.name === 'email') {
@@ -78,7 +81,7 @@ export default function Form({ positionList }) {
       return;
     }
   }, [userData]);
-  function validateSize(input) {
+  function validateSize(value) {
     const fileSize = fileField.files[0].size;
     if (fileSize > 5242880) {
       setstatusPhoto(false);
@@ -126,13 +129,18 @@ export default function Form({ positionList }) {
       }
     );
     response.json().then(data => {
-      console.log(data);
+      const { success, message } = data;
+      if (success === true) {
+        updateListUsers(true);
+      } else {
+        toast.error(message);
+      }
     });
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
-    getToken();
+    getToken().then(setuserData({}));
   }
 
   return (

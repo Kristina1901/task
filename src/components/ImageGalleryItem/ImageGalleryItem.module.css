@@ -47,91 +47,8 @@
       
       
 }
-@media screen and (min-width: 360px) {
-    .info {
-    width: 288px;
-     
-       
-    }
-        .name {
-          width: 288px;
-    
-        }
-        .tooltiptextPhone {
-            width:90px
-        }
-        .tooltiptextMail { 
-            width: 90px;
-        }
-
-
-}
-
-@media screen and (min-width: 768px) {
-.info {
-     width:  304px;
-    
-
-    }
-        .name {
-          width: 304px;
-          
-    
-        }
-               
-}
-
-@media screen and (min-width: 1024px) {
-    .info {
-        width: 242px;
-       
-    }
-        .name {
-            width: 242px;
-         
-    
-        }
-}
-
-@media screen and (min-width: 2560px) {
-    .info {
-            width: 330px;
-          
-        }
-                .name {
-                    width: 330px;
-                    
-        
-                }
-}
-/* .tooltiptextMail {
-    display: none;
+.tooltiptextMail {
     width: 276px;
-    background: rgba(0, 0, 0, 0.87);
-    color:  rgba(255, 255, 255, 1);
-    text-align: center;
-    font-family: 'Nunito';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 26px;
-    padding: 3px 16px;
-    border-radius: 4px;
-    position: absolute;
-    z-index: 1;
-    top: 42px;
-    left: 50%;
-    right: 50%;
-   
-}
-.linkMail {
-    position: relative;
-    display: block;
-}
-.linkMail:hover .tooltiptextMail {
-    visibility: visible;
-}
-.tooltiptextPhone {
     visibility: hidden;
     background: rgba(0, 0, 0, 0.87);
     color: rgba(255, 255, 255, 1);
@@ -145,11 +62,38 @@
     border-radius: 4px;
     position: absolute;
     z-index: 1;
-    top: 42px;
-    left: 50%;
-    right: 50%;
-    width: 272px;
+    top: 41px;
+    right: 0%;
+    left: 0%;
+ }
 
+.linkMail {
+    position: relative;
+    display: block;
+}
+
+.linkMail:hover .tooltiptextMail {
+    visibility: visible;
+}
+
+.tooltiptextPhone {
+    visibility: hidden;
+    width: 276px;
+    background: rgba(0, 0, 0, 0.87);
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    padding: 3px 16px;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1;
+    top: 41px;
+    right: 0%;
+    left: 0%;
 }
 
 .linkPhone {
@@ -159,4 +103,57 @@
 
 .linkPhone:hover .tooltiptextPhone {
     visibility: visible;
-} */
+}
+@media screen and (min-width: 360px) {
+    .info {
+    width: 288px;     
+    }
+    .name {
+          width: 288px;
+        }
+        
+}
+
+@media screen and (min-width: 768px) {
+.info {
+     width:  304px;
+     }
+    .name {
+     width: 304px;
+    }
+               
+}
+
+@media screen and (min-width: 1024px) {
+    .info {
+        width: 242px;
+     
+    }
+    .name {
+     width: 242px;
+     }
+     .tooltiptextMail {
+        left: 50px;
+    }
+        .tooltiptextPhone {
+            left: 50px;
+        }
+                
+}
+
+@media screen and (min-width: 2560px) {
+    .info {
+         width: 330px;
+    }
+    .name {
+        width: 330px;
+           }    
+    .tooltiptextMail { 
+        left: 50px;
+    }
+        .tooltiptextPhone {
+            left: 50px;
+        }
+
+
+    }
