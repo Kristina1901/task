@@ -11,13 +11,13 @@
     padding: 0;
     display: grid;
     margin-bottom: -29px;
+    margin-right: -29px;
   
     
 }
  @media screen and (min-width: 360px) {
     .item {
-        width: 328px;
-        margin-bottom: 20px;
+       margin-bottom: 20px;
         margin-right: 0;
        
      }
@@ -30,37 +30,31 @@
 
  @media screen and (min-width: 768px) {
     .item {
-            width: 344px; margin-bottom: 16px; margin-right: 16px;
+           margin-bottom: 16px; margin-right: 16px;
            }
                   .list {
                       grid-template-columns: 1fr 1fr
                   }
-                                  .item:nth-child(3n) {
-                                      margin-right: 0px;
-                                  }
+                                  
  }
 
  @media screen and (min-width: 1024px) {
     .item {
-            width: 282px; margin-bottom: 29px;
+           margin-bottom: 29px;
         }
                   .list {
                       grid-template-columns: 1fr 1fr 1fr
                   }
-                                  .item:nth-child(3n) {
-                                      margin-right: 0px;
-                                  }
+                                 
 
  }
 
  @media screen and (min-width: 2560px) {
     .item {
-            width: 370px; margin-bottom: 29px; margin-right: 29px;
+           margin-bottom: 29px; margin-right: 29px;
         }
                  .list {
                      grid-template-columns: 1fr 1fr 1fr
                  }
-                                 .item:nth-child(3n) {
-                                     margin-right: 0px;
-                                 }
+                              
  }

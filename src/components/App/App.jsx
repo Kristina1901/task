@@ -96,19 +96,17 @@ export default function App() {
       <Section nameForClass={'sectioncomment'}>
         <div className={s.wrap}>
           <Title name={'Working with GET request'} />
-          <div className={s.gallery}>
-            <ImageGallery userList={userList} />
-            {status === 'pending' && <Loader />}
-            {value && (
-              <Button
-                name={'Show more'}
-                handleIncrement={handleIncrement}
-                style={stylebut.show}
-              />
-            )}
-          </div>
+          <ImageGallery userList={userList} />
+          {status === 'pending' && <Loader />}
+          {value && (
+            <Button
+              name={'Show more'}
+              handleIncrement={handleIncrement}
+              style={stylebut.show}
+            />
+          )}
         </div>
-      </Section>
+        </Section>
       <Section nameForClass={'sectionpost'}>
         <Form positionList={positionList} />
       </Section>
