@@ -4,6 +4,7 @@ import Title from 'components/Title/Title';
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import validator from 'validator';
+// import reactImageSize from 'react-image-size';
 import Loader from 'components/Loader/Loader';
 export default function Form({ positionList, updateListUsers }) {
   let fileField = document.querySelector('input[type="file"]');
@@ -93,24 +94,7 @@ export default function Form({ positionList, updateListUsers }) {
       return true;
     }
   }
-  function validateResolution(e) {
-    //Initiate the JavaScript Image object.
-    var image = new Image();
 
-    //Set the Base64 string return from FileReader as source.
-    image.src = e.target.result;
-
-    //Validate the File Height and Width.
-    image.onload = function () {
-      var height = this.height;
-      var width = this.width;
-      if (height > 70 || width > 70) {
-        console.log('hi');
-      }
-      console.log('Uploaded image has valid Height and Width.');
-      return true;
-    };
-  }
   function updateFormInput() {
     let formData = new FormData();
     formData.append('name', userData.name);
@@ -222,7 +206,6 @@ export default function Form({ positionList, updateListUsers }) {
                 type="file"
                 className={s.inputLoad}
                 onChange={handleInputChange}
-                onLoad={validateResolution}
                 name="photo"
                 accept=".jpg, .jpeg,"
               />
