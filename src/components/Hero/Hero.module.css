@@ -89,7 +89,7 @@
           min-width: 1170px;
           padding: 164px 395px 163px 395px;
           background-size: 1170px;
-          background-size: contain
+          background-size: cover
       }
           .wrapperText {
               width: 380px;
