@@ -206,7 +206,7 @@ export default function Form({ positionList, updateListUsers }) {
                 className={s.radioInput}
                 onChange={handleInputChange}
               />
-              {name}
+              <span className={s.radioText}>{name}</span>
             </label>
           ))}
         </div>
