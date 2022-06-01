@@ -1,4 +1,3 @@
-import Button from 'components/Button/Button';
 import s from 'components/Header/Header.module.css';
 import pict from 'components/Header/logo.svg';
 import text from 'components/Header/labe.svg';
