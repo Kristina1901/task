@@ -1,7 +1,10 @@
-import Button from 'components/Button/Button';
 import stylebut from 'components/Button/Button.module.css';
 import s from 'components/Hero/Hero.module.css';
+import { animateScroll as scroll } from 'react-scroll';
 export default function Hero() {
+  const scrollToBottom = () => {
+    scroll.scrollToBottom();
+  };
   return (
     <div className={s.container}>
       <div className={s.wrapperText}>
@@ -13,7 +16,9 @@ export default function Hero() {
           mind. They should also be excited to learn, as the world of Front-End
           Development keeps evolving.
         </p>
-        <Button name={'Sign up'} style={stylebut.button} />
+        <button className={stylebut.button} onClick={scrollToBottom}>
+          Sign up
+        </button>
       </div>
     </div>
   );
