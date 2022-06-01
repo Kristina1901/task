@@ -103,6 +103,7 @@ export default function App() {
         showPosition().then(data => {
           const { positions } = data;
           setPositionList(positions);
+          setValue(true);
         });
       }
     }
