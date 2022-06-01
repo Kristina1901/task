@@ -14,7 +14,12 @@ export default function Header() {
         <img src={text} alt="logo" width="64" height="11" />
       </a>
       <div className={s.buttonsContainer}>
-        <button className={stylebut.button}>Users</button>
+        <button
+          className={stylebut.button}
+          onClick={() => window.scrollTo(0, 600)}
+        >
+          Users
+        </button>
         <button className={stylebut.button} onClick={scrollToBottom}>
           Sign up
         </button>
