@@ -11,8 +11,8 @@ export default function Header() {
         <img src={text} alt="logo" width="64" height="11" />
       </a>
       <div className={s.buttonsContainer}>
-        <Button name={'Users'} style={stylebut.button} />
-        <Button name={'Sign up'} style={stylebut.button} />
+        <button className={stylebut.button}>Users</button>
+        <button className={stylebut.button}>Sign up</button>
       </div>
     </div>
   );
