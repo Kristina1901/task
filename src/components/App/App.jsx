@@ -112,7 +112,7 @@ export default function App() {
     setPage(page + 1);
   }
   return (
-    <>
+    <div className={s.main}>
       <header>
         <Container>
           <Header />
@@ -140,6 +140,6 @@ export default function App() {
       </Section>
       {status === 'rejected' && { error }}
       <ToastContainer />
-    </>
+    </div>
   );
 }

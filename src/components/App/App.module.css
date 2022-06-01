@@ -12,3 +12,11 @@
     flex-direction: column;
         
 }
+ @media screen and (min-width: 2560px) {
+     .main {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         flex-direction: column;
+     }
+    }

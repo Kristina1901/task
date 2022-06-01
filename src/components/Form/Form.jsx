@@ -57,7 +57,7 @@ export default function Form({ positionList, updateListUsers }) {
           name: value,
         }));
       }
-      if (value.length < 2 || value.length > 62) {
+      if (value.length < 2 || value.length > 60) {
         setstatusInpuName(false);
       }
     }
