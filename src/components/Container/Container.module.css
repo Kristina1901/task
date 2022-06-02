@@ -1,6 +1,7 @@
     .container {
         background-color: #FFFFFF;
-        
+        padding-right: 16px;
+        padding-left: 16px;
        
     }
     @media screen and (min-width: 360px) {
