@@ -1,12 +1,12 @@
     .container {
         background-color: #FFFFFF;
-        padding-right: 16px;
-        padding-left: 16px;
+       
        
     }
     @media screen and (min-width: 360px) {
      .container {
          min-width: 360px;
+       
         
         
        
@@ -17,6 +17,8 @@
     @media screen and (min-width: 768px) {
     .container {
             min-width: 768px;
+            padding-right: 16px;
+            padding-left: 16px;
           
           
            
@@ -27,6 +29,8 @@
     @media screen and (min-width: 1024px) {
     .container {
             min-width: 1024px;
+            padding-right: 16px;
+            padding-left: 16px;
             
            
     
@@ -36,6 +40,8 @@
     @media screen and (min-width: 2560px) {
     .container {
             min-width: 2560px;
+            padding-right: 16px;
+            padding-left: 16px;
           
            
     

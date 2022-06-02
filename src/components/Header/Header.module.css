@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     background: rgba(255, 255, 255, 1);
-    
+    padding: 13px 16px 13px 23px;
    
 
 }
@@ -16,7 +16,7 @@
  @media screen and (min-width: 360px) {
      .container {
          min-width: 344px;
-         padding: 13px 0px 13px 23px;
+        
 
 
 
@@ -27,7 +27,7 @@
  @media screen and (min-width: 768px) {
      .container {
          min-width: 752px;
-         padding: 13px 16px 13px 23px;
+        
 
 
 
@@ -38,7 +38,7 @@
  @media screen and (min-width: 1024px) {
      .container {
          min-width: 1008px;
-         padding: 13px 16px 13px 23px;
+         
 
 
 
@@ -49,7 +49,7 @@
  @media screen and (min-width: 2560px) {
      .container {
          min-width: 2544px;
-         padding: 13px 16px 13px 23px;
+        
 
 
 
