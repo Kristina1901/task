@@ -4,7 +4,7 @@
     }
     @media screen and (min-width: 360px) {
      .container {
-         min-width: 360px;
+         min-width: 344px;
         
         
        
@@ -14,7 +14,7 @@
 
     @media screen and (min-width: 768px) {
     .container {
-            min-width: 768px;
+            min-width: 752px;
           
           
            
@@ -24,7 +24,7 @@
 
     @media screen and (min-width: 1024px) {
     .container {
-            min-width: 1024px;
+            min-width: 1008px;
             
            
     
@@ -33,7 +33,7 @@
     }
     @media screen and (min-width: 2560px) {
     .container {
-            min-width: 2560px;
+            min-width: 2544px;
           
            
     
